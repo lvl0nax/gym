@@ -1,0 +1,25 @@
+<h1 class="newstitle">Филиалы</h1>
+
+<% @filials.each do |f| %>
+  <div class="specoffer">  
+    <div class="so_img"> <%= image_tag  f.photo.thumb.url %> </div>
+    <div class="so_content"  >
+      <h2> <%= f.title %> </h2>
+      <%= f.shortc %>
+    </div>
+    <div class="for_clear"></div>
+    <div class="nplinks">
+      <%= link_to 'Подробнее', f %>
+      <% if current_user.try(:isAdmin?)   %>
+          <%= link_to 'Edit', edit_filial_path(f) %>
+          <%= link_to 'Destroy', f, confirm: 'Are you sure?', method: :delete %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+
+<br />
+<% if current_user.try(:isAdmin?)   %>
+  <%= link_to 'Создать филиал', new_filial_path %>
+<% end %>

@@ -1,0 +1,17 @@
+<h1 class="newstitle">Семинары</h1>
+
+<% @seminars.each do |seminar| %>
+  <div class="newspage">  
+    <div class="date"> <%= seminar.created_at.to_s(:db)%> </div>
+    <h2> <%= link_to seminar.title, seminar %> </h2>
+    <%= seminar.shortc %>
+    <div class="nplinks">
+      <%= link_to 'Подробнее', seminar %>
+      <% if current_user.try(:isAdmin?)   %>
+          <%= link_to 'Редактировать', edit_seminar_path(seminar) %>
+          <%= link_to 'Удалить', seminar, confirm: 'Вы уверены?', method: :delete %>
+      <% end %>
+
+    </div>
+  </div>
+<% end %>

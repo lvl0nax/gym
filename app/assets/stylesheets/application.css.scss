@@ -1,0 +1,159 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+/* reset */
+html,body,div,span,h1,h2,h3,h4,b,u,i,s,em,form,fieldset,label,legend,input,button,textarea,a,p,table,caption,tbody,thead,tr,th,td, ul, li, ol{
+	margin: 0;
+	padding: 0;
+	outline: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0 ;
+	font-size: inherit;
+	font: 100%;
+}
+fieldset,img {
+	border: 0;
+}
+caption,th,td{
+	text-align: left ;
+	padding: 0 10px;
+}
+ul,ol{
+	list-style: none;
+}
+input,button,textarea,select,th,optgroup,option {
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+}
+/* global styles */
+html, body {
+	height: 100%;
+	color: #58595b;
+}
+a, .jslink{
+	color: blue;
+}
+a:hover, .jslink:hover{
+	color: #F15A2A;}
+.jslink{
+	text-decoration: underline;
+	cursor: pointer;
+	&:hover{
+		text-decoration: none;}
+}
+body{
+	font: 13px Helvetica,sans-serif;
+	background: #fff;
+}
+h1 {
+	font-size: 30px;
+}
+h2 {
+	font-size: 21px;
+}
+h3 {
+	font-size: 19px;
+}
+h4 {
+	font-size: 17px;
+}
+h1, h2, h3, .normal {
+	font-weight: normal;
+	color: #333132;
+	margin: 0 0 0.35em;
+	line-height: 1em;
+}
+.notify-title {
+	color: #F15A2A;
+}
+/*all constants which we can use in sass*/
+$main-width: 950px;
+
+#container {
+	min-height: 100%;
+	min-width: $main-width;
+	position: relative;
+	overflow: hidden;
+	background-color: #eee;
+}
+.content-top{
+	position: relative;
+	width: $main-width;
+	height: 290px;
+	margin: 0 auto;
+	background-color: #b0effc;
+}
+.top-menu{
+	position: absolute;
+	width: inherit;
+	height: 20px;
+	bottom: 0;
+	background-color: #16adff;
+}
+#content-body{
+	margin:0 auto; width:$main-width; position: relative;z-index: 2; padding-bottom: 140px;
+	background-color: #d4fafc;
+}
+#content-footer{
+  z-index: 10; position: absolute; bottom: 0; left: 50%; 
+  margin: 0 0 0 -475px; width: $main-width; height: 100px; padding: 20px 0 15px;
+  background-color: darken(#16adff, 15%);
+}
+.title h1{color:#688daa; font-weight: bold;}
+
+.date{color: #688d22;font-family: 'Times New Roman'; font-style: italic;}
+h1.newstitle{color:#688d22;}
+.newspage h2 a{color:#688daa; text-decoration: none;}
+.newspage h2 a:hover{color:#466b99;}
+.nplinks a{color:#688daa;}
+.nplinks a:hover{color:#466b99;}
+.newspage{padding: 10px; border-bottom: 1px grey solid;}
+
+.login-links{float:right;margin-top: 30px; font-size: 18px; }
+.login-links a{text-decoration: none; color: #688daa; float: right;}
+.login-links a:hover{ color: #688d22; }
+
+.admin-links{
+  background-color: grey;
+  width: $main-width; height: 20px; 
+  position: absolute; top: 245px;
+  -moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
+  color: white;
+}
+
+.admin-links a:hover{ color: white;}
+
+.top-menu{
+	text-align: center;
+
+	a {
+		text-decoration: none;
+	}
+}
+
+.specoffer{
+  padding: 10px; /*border-bottom: 1px #688daa solid;*/
+  -moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
+  box-shadow: 3px 3px 7px #688daa;
+  -webkit-box-shadow: 3px 3px 7px #688daa;
+  -moz-box-shadow: 3px 3px 7px #688daa;
+  background-color: white;
+	h2{color:#688daa;}
+	img{float: left; padding-right: 10px; }
+}
+.so_img {}
+.for_clear{clear:left;}

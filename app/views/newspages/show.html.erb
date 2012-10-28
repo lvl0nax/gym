@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<div class="title">
+  <h1> <%= @newspage.title %> </h1>
+</div>
+
+
+<div>
+  <%= @newspage.content %>
+</div>
+<div class="nplinks"> <%= link_to 'Вернуться к списку новостей', newspages_path %> </div>
+<% if current_user.try(:isAdmin?)   %>
+  <p>
+    <b>meta_title:</b>
+    <%= @newspage.meta_title %>
+  </p>
+
+  <p>
+    <b>meta_desc:</b>
+    <%= @newspage.meta_desc %>
+  </p>
+
+  <p>
+    <b>meta_keywords:</b>
+    <%= @newspage.meta_key %>
+  </p>
+
+
+
+
+  <%= link_to 'Редактировать', edit_newspage_path(@newspage) %> |
+  
+<% end %>

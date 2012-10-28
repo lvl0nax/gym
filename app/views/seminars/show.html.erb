@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @seminar.title %>
+</p>
+
+<p>
+  <b>Shortc:</b>
+  <%= @seminar.shortc %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @seminar.content %>
+</p>
+
+<p>
+  <b>Meta title:</b>
+  <%= @seminar.meta_title %>
+</p>
+
+<p>
+  <b>Meta desc:</b>
+  <%= @seminar.meta_desc %>
+</p>
+
+<p>
+  <b>Meta key:</b>
+  <%= @seminar.meta_key %>
+</p>
+
+
+<%= link_to 'Edit', edit_seminar_path(@seminar) %> |
+<%= link_to 'Back', seminars_path %>

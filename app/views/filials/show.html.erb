@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<div class="title">
+  <h1> <%= @filial.title %> </h1>
+</div>
+<div class="so_img"> <%= image_tag  @filial.photo.thumb.url %> </div>
+<div>
+  <%= @filial.content %>
+</div>
+<div class="nplinks"> <%= link_to 'Вернуться к списку филиалов', filials_path %> </div>
+<% if current_user.try(:isAdmin?)   %>
+  <p>
+    <b>Meta title:</b>
+    <%= @filial.meta_title %>
+  </p>
+
+  <p>
+    <b>Meta desc:</b>
+    <%= @filial.meta_desc %>
+  </p>
+
+  <p>
+    <b>Meta key:</b>
+    <%= @filial.meta_key %>
+  </p>
+
+
+  <%= link_to 'Edit', edit_filial_path(@filial) %>
+<% end %>

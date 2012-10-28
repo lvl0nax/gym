@@ -1,0 +1,36 @@
+<h1>Listing questions</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Answer</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @questions.each do |question| %>
+    <tr>
+      <td><%= question.title %></td>
+      <td><%= question.content %></td>
+      <% if question.try(:answer) %>
+        <td><%= question.answer.content %></td>
+      <% else %>
+        <td></td>
+      <% end %>
+      <td><%= link_to 'Show', question %></td>
+      <td><%= link_to 'Edit', edit_question_path(question) %></td>
+      <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% unless question.try(:answer) %>
+        <td><%= link_to 'ответить', new_answer_path(:id => question) %></td>
+      <% end %>
+    </tr>
+    
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Question', new_question_path %>

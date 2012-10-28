@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<div class="title">
+  <h1> <%= @page.title %> </h1>
+</div>
+
+<div>
+  <%= raw @page.content %>
+</div>
+<% if current_user.try(:isAdmin?)   %>
+  <p>
+    <b>Meta title:</b>
+    <%= @page.meta_title %>
+  </p>
+
+  <p>
+    <b>Meta desc:</b>
+    <%= @page.meta_desc %>
+  </p>
+
+  <p>
+    <b>Meta key:</b>
+    <%= @page.meta_key %>
+  </p>
+
+
+  <%= link_to 'Edit', edit_page_path(@page) %> |
+  <%= link_to 'Back', pages_path %>
+
+<% end %>

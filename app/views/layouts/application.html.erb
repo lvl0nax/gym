@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  
+  <title><%= seotitle%></title>
+  <meta name="description" content="<%= seodescription %>" />
+  <meta name="keywords" content="<%= seokeywords%>" />
+
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= tinymce_javascript_tag "pages", "advanced" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="container">
+    <div class="content-top">
+      <% if current_user.try(:isAdmin?)   %>
+        <div class="admin-links">
+          Создать:  
+          <%= link_to "Страницу", new_page_path %>   |
+          <%= link_to "Новость", new_newspage_path %>   |
+          <%= link_to "Филиал", new_filial_path %>   |
+          <%= link_to "Семинар", new_seminar_path %>   |
+          <%= link_to "Галерею", new_seminar_path %>   |
+        </div>
+      <% end %>
+      <div class="login-links">
+        <% if current_user %>
+          <span><%= link_to current_user.email, edit_user_registration_path %></span> </br>
+          <%= link_to "Выйти", destroy_user_session_path, :method => :delete %>
+        <%else %>
+          <%= link_to "Войти", new_user_session_path %> </br>
+          <%= link_to "Регистрация", new_user_registration_path %>
+        <% end %>
+      </div>
+      <div class="top-menu">
+        <% Page.all.each do |p|%>
+          <%= link_to p.title, p %>
+        <% end %>
+        <%= link_to "Новости", newspages_path %>
+        <%= link_to "Филиалы", filials_path %>
+        <%= link_to "Семинары", seminars_path %>
+        <%= link_to "Галерея", pictures_path %>
+        <%= link_to "Вопросы", questions_path %>
+        <%= link_to "Контакты", @contacts  %>
+      </div>
+    </div>
+
+    <div id="content-body">
+      <%= yield %>
+    </div>
+
+    <div id="content-footer">
+    </div>
+    <div class="wrapper">
+      <div id="popup"></div>
+    </div>
+  </div>
+</body>
+</html>
