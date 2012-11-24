@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-  include TinymceFm::Filemanager
   # GET /pages
   # GET /pages.json
   def index

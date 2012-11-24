@@ -1,5 +1,8 @@
 Gymnastics::Application.routes.draw do
-  mount TinymceFm::Engine => "/tinymce_fm"
+  resources :articles
+
+  resources :instructors
+
   resources :movies
 
   resources :pictures
@@ -7,7 +10,6 @@ Gymnastics::Application.routes.draw do
   resources :seminars
 
   resources :newspages
-
 
   resources :questions
 
@@ -19,6 +21,7 @@ Gymnastics::Application.routes.draw do
 
   devise_for :users
 
+  post '/tinymce_assets' => 'tinymce_assets#create'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

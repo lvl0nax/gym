@@ -9,22 +9,18 @@
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <%= tinymce_javascript_tag "pages", "advanced" %>
+
+  <script type="text/javascript" src="http://tinymce.moxiecode.com/js/tinymce/jscripts/tiny_mce/jquery.tinymce.js"></script>
+  <script type="text/javascript" src="http://tinymce.moxiecode.com/js/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div id="container">
     <div class="content-top">
-      <% if current_user.try(:isAdmin?)   %>
-        <div class="admin-links">
-          Создать:  
-          <%= link_to "Страницу", new_page_path %>   |
-          <%= link_to "Новость", new_newspage_path %>   |
-          <%= link_to "Филиал", new_filial_path %>   |
-          <%= link_to "Семинар", new_seminar_path %>   |
-          <%= link_to "Галерею", new_seminar_path %>   |
-        </div>
-      <% end %>
+      <div class="logo">
+        <%= image_tag "/assets/logo.jpg" %>
+      </div>
+      
       <div class="login-links">
         <% if current_user %>
           <span><%= link_to current_user.email, edit_user_registration_path %></span> </br>
@@ -34,6 +30,13 @@
           <%= link_to "Регистрация", new_user_registration_path %>
         <% end %>
       </div>
+      
+    </div>
+
+    <div class="top-image">
+      Здесь могла быть ваша реклама.
+    </div>
+    <div id="content-body">
       <div class="top-menu">
         <% Page.all.each do |p|%>
           <%= link_to p.title, p %>
@@ -45,9 +48,17 @@
         <%= link_to "Вопросы", questions_path %>
         <%= link_to "Контакты", @contacts  %>
       </div>
-    </div>
 
-    <div id="content-body">
+      <% if current_user.try(:isAdmin?)   %>
+        <div class="admin-links">
+          Создать:  
+          <%= link_to "Страницу", new_page_path %>   |
+          <%= link_to "Новость", new_newspage_path %>   |
+          <%= link_to "Филиал", new_filial_path %>   |
+          <%= link_to "Семинар", new_seminar_path %>   |
+          <%= link_to "Галерею", new_seminar_path %>   |
+        </div>
+      <% end %>
       <%= yield %>
     </div>
 

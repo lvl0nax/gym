@@ -11,7 +11,8 @@ gem 'therubyracer'
 gem 'json'
 gem 'rmagick'
 
-gem 'tinymce_fm'
+gem 'tinymce-rails'
+gem 'tinymce-rails-imageupload'
 
 gem 'devise' #install devise for users
 	#rails generate devise:install
