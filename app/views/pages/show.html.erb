@@ -5,8 +5,10 @@
 </div>
 
 <div class="descr">
+  <%= image_tag @page.image.medium.url unless @page.image.blank?%>
   <%= raw @page.content %>
 </div>
+<div class="for_clear"></div>
 <% if current_user.try(:isAdmin?)   %>
   <p>
     <b>Meta title:</b>

@@ -105,7 +105,11 @@ $main-width: 950px;
   -moz-box-shadow: 3px 3px 7px #aa128F;
 }
 
-.descr{}
+.descr img{
+	float: left;
+}
+
+.for_clear{clear:left;}
 
 .top-image{
 	text-align: center;

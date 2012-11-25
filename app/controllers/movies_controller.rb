@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+  before_filter :admin_require, :except => [:show, :index]
   # GET /movies
   # GET /movies.json
   def index

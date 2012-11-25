@@ -1,4 +1,5 @@
 class NewspagesController < ApplicationController
+  before_filter :admin_require, :except => [:show, :index]
   # GET /newspages
   # GET /newspages.json
   def index

@@ -1,4 +1,5 @@
 class InstructorsController < ApplicationController
+  before_filter :admin_require, :except => [:show, :index]
   # GET /instructors
   # GET /instructors.json
   def index

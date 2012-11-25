@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_filter :admin_require, :except => [:show, :index]
   # GET /questions
   # GET /questions.json
   def index

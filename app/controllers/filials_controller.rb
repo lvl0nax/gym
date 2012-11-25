@@ -1,4 +1,5 @@
 class FilialsController < ApplicationController
+  before_filter :admin_require, :except => [:show, :index]
   # GET /filials
   # GET /filials.json
   def index

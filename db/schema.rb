@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121006091735) do
+ActiveRecord::Schema.define(:version => 20121125171047) do
 
   create_table "answers", :force => true do |t|
     t.text     "content"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(:version => 20121006091735) do
   end
 
   add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
+
+  create_table "articles", :force => true do |t|
+    t.string   "name"
+    t.string   "photo"
+    t.text     "description"
+    t.string   "meta_title"
+    t.text     "meta_desc"
+    t.string   "meta_key"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "filials", :force => true do |t|
     t.string   "title"
@@ -32,6 +43,17 @@ ActiveRecord::Schema.define(:version => 20121006091735) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "photo"
+  end
+
+  create_table "instructors", :force => true do |t|
+    t.string   "name"
+    t.string   "photo"
+    t.text     "description"
+    t.string   "meta_title"
+    t.text     "meta_desc"
+    t.string   "meta_key"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "movies", :force => true do |t|
@@ -60,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20121006091735) do
     t.string   "meta_key"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "image"
   end
 
   create_table "pictures", :force => true do |t|
