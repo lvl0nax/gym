@@ -100,9 +100,9 @@ $main-width: 950px;
 	position: relative;
 	width: 350px;
 	-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
-	box-shadow: 3px 3px 7px #000;
-  -webkit-box-shadow: 3px 3px 7px #000;
-  -moz-box-shadow: 3px 3px 7px #000;
+	box-shadow: 3px 3px 7px #aa128F;
+  -webkit-box-shadow: 3px 3px 7px #aa128F;
+  -moz-box-shadow: 3px 3px 7px #aa128F;
 }
 
 .descr{}
@@ -120,28 +120,48 @@ $main-width: 950px;
 
 .top-menu{
 	width: inherit;
-	height: 20px;
-	background-color: darken(#ffa5e5, 15%);
-	width: $main-width - 40px;
-	margin-left: 20px;
+	height: 40px;	
+	width: $main-width;
+	border-bottom: 2px solid #feb9fa;
 }
+
+.mbutton{
+	display: inline-block;
+	background: #FF99FF;
+	-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
+	box-shadow: 3px 3px 7px #aa128F;
+  -webkit-box-shadow: 3px 3px 7px #aa128F;
+  -moz-box-shadow: 3px 3px 7px #aa128F;
+  padding: 8px;
+	font-size: 15px;
+	color: #da4471;
+}
+
+a:hover div.mbutton{
+	background: #FFccFF;
+}
+
 #content-body{
 	margin:0 auto 140px; width:$main-width; position: relative;z-index: 2;
 	background: #fff;
 	-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
-	box-shadow: 3px 3px 7px #000;
-  -webkit-box-shadow: 3px 3px 7px #000;
-  -moz-box-shadow: 3px 3px 7px #000;
+	box-shadow: 3px 3px 7px #aa128F;
+  -webkit-box-shadow: 3px 3px 7px #aa128F;
+  -moz-box-shadow: 3px 3px 7px #aa128F;
   padding: 20px;
 }
 #content-footer{
   z-index: 10; position: absolute; bottom: 0; left: 50%; 
   margin: 0 0 0 -475px; width: $main-width; height: 100px; padding: 20px 0 15px;
 }
-.title h1{color:#688daa; font-weight: bold; margin-left: 20px;}
+.title h1{color:#da4471; font-weight: bold; margin-left: 20px;}
 
-.date{color: #688d22;font-family: 'Times New Roman'; font-style: italic;}
-h1.newstitle{color:#688d22;}
+.date{ 
+	color: #da4471; 
+	font-family: 'Times New Roman'; 
+	font-style: italic;
+}
+h1.newstitle{color:#da4471;}
 .newspage h2 a{color:#688daa; text-decoration: none;}
 .newspage h2 a:hover{color:#466b99;}
 .nplinks a{color:#688daa;}
@@ -151,12 +171,14 @@ h1.newstitle{color:#688d22;}
 .login-links{float:right; margin-top: 30px; font-size: 18px; position: absolute; top: 0;	}
 .login-links a{text-decoration: none; color: #688daa; float: right;}
 .login-links a:hover{ color: #688d22; }
+.lgn-links{ margin: -2000px;}
 
 .admin-links{
-  background-color: grey;
+  background-color: #ccc;
   width: $main-width; height: 20px; 
   -moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
-  color: white;
+  color: black;
+  margin-top: -16px
 }
 
 .admin-links a:hover{ color: white;}

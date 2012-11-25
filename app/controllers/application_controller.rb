@@ -5,8 +5,9 @@ class ApplicationController < ActionController::Base
 
   def init_menu
     #@about = Infopage.where(:tag => "about").first
-    
     @contacts = Page.where((:title).downcase => "контакты").first
+    @pages = Page.all.to_a
+    @pages.delete(@contacts)
   end
 
   def admin_require

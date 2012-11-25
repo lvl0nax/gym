@@ -26,8 +26,10 @@
           <span><%= link_to current_user.email, edit_user_registration_path %></span> </br>
           <%= link_to "Выйти", destroy_user_session_path, :method => :delete %>
         <%else %>
-          <%= link_to "Войти", new_user_session_path %> </br>
-          <%= link_to "Регистрация", new_user_registration_path %>
+          <div class="lgn-links">
+            <%= link_to "Войти", new_user_session_path %> </br>
+            <%= link_to "Регистрация", new_user_registration_path %>
+          </div>
         <% end %>
       </div>
       
@@ -37,28 +39,59 @@
       Здесь могла быть ваша реклама.
     </div>
     <div id="content-body">
-      <div class="top-menu">
-        <% Page.all.each do |p|%>
-          <%= link_to p.title, p %>
-        <% end %>
-        <%= link_to "Новости", newspages_path %>
-        <%= link_to "Филиалы", filials_path %>
-        <%= link_to "Семинары", seminars_path %>
-        <%= link_to "Галерея", pictures_path %>
-        <%= link_to "Вопросы", questions_path %>
-        <%= link_to "Контакты", @contacts  %>
-      </div>
-
       <% if current_user.try(:isAdmin?)   %>
         <div class="admin-links">
           Создать:  
-          <%= link_to "Страницу", new_page_path %>   |
-          <%= link_to "Новость", new_newspage_path %>   |
-          <%= link_to "Филиал", new_filial_path %>   |
-          <%= link_to "Семинар", new_seminar_path %>   |
-          <%= link_to "Галерею", new_seminar_path %>   |
+          <%= link_to "Страницу", new_page_path %>|
+          <%= link_to "Новость", new_newspage_path %>|
+          <%= link_to "Филиал", new_filial_path %> |
+          <%= link_to "Семинар", new_seminar_path %> |
+          <%= link_to "Галерею", new_seminar_path %> |
         </div>
       <% end %>
+      <div class="top-menu">
+        <% @pages.each do |p|%>
+          <%= link_to p do %>
+            <div class="mbutton">
+              <%= p.title %>
+            </div>
+          <% end %>
+        <% end %>
+        <%= link_to  newspages_path do %>
+          <div class="mbutton">
+            Новости
+          </div>
+        <% end %>
+        <%= link_to seminars_path do %>
+          <div class="mbutton">
+            Семинары
+          </div>
+        <% end %>
+        <% if current_user.try(:isAdmin?)   %>
+          <%= link_to filials_path do %>
+            <div class="mbutton">
+              Филиалы
+            </div>
+          <% end %>
+          <%= link_to pictures_path do %>
+            <div class="mbutton">
+              Галерея
+            </div>
+          <% end %>
+          <%= link_to questions_path do %>
+            <div class="mbutton">
+              Вопросы
+            </div>
+          <% end %>
+        <% end %>
+        <%= link_to @contacts do %>
+          <div class="mbutton">
+            Контакты
+          </div>
+        <% end %>
+      </div>
+
+      
       <%= yield %>
     </div>
 
