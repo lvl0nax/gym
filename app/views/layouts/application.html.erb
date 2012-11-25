@@ -96,6 +96,33 @@
     </div>
 
     <div id="content-footer">
+      <div class="bottom-menu">
+        <% @pages.each do |p|%>
+          <%= link_to p do %>
+              <%= p.title %>
+          <% end %>
+        <% end %>
+        <%= link_to  newspages_path do %>
+            Новости
+        <% end %>
+        <%= link_to seminars_path do %>
+            Семинары
+        <% end %>
+        <% if current_user.try(:isAdmin?)   %>
+          <%= link_to filials_path do %>
+              Филиалы
+          <% end %>
+          <%= link_to pictures_path do %>
+              Галерея
+          <% end %>
+          <%= link_to questions_path do %>
+              Вопросы
+          <% end %>
+        <% end %>
+        <%= link_to @contacts do %>
+            Контакты
+        <% end %>
+      </div>
     </div>
     <div class="wrapper">
       <div id="popup"></div>

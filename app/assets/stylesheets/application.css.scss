@@ -129,6 +129,18 @@ $main-width: 950px;
 	border-bottom: 2px solid #feb9fa;
 }
 
+.bottom-menu {
+	text-align: center;
+}
+.bottom-menu a:hover{
+	color: #688daa;
+}
+.bottom-menu a{
+	text-decoration: none;
+	color: #da4471;
+	padding: 5px;
+}
+
 .mbutton{
 	display: inline-block;
 	background: #FF99FF;
@@ -146,7 +158,7 @@ a:hover div.mbutton{
 }
 
 #content-body{
-	margin:0 auto 140px; width:$main-width; position: relative;z-index: 2;
+	margin:0 auto 80px; width:$main-width; position: relative;z-index: 2;
 	background: #fff;
 	-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
 	box-shadow: 3px 3px 7px #aa128F;
@@ -156,7 +168,7 @@ a:hover div.mbutton{
 }
 #content-footer{
   z-index: 10; position: absolute; bottom: 0; left: 50%; 
-  margin: 0 0 0 -475px; width: $main-width; height: 100px; padding: 20px 0 15px;
+  margin: 0 0 0 -475px; width: $main-width; height: 40px; padding: 20px 0 15px;
 }
 .title h1{color:#da4471; font-weight: bold; margin-left: 20px;}
 
