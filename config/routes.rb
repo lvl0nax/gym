@@ -1,4 +1,6 @@
 Gymnastics::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
   resources :articles
 
   resources :instructors
@@ -21,7 +23,6 @@ Gymnastics::Application.routes.draw do
 
   devise_for :users
 
-  post '/tinymce_assets' => 'tinymce_assets#create'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

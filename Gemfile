@@ -11,8 +11,8 @@ gem 'therubyracer'
 gem 'json'
 gem 'rmagick'
 
-gem 'tinymce-rails'
-gem 'tinymce-rails-imageupload'
+gem "ckeditor", "3.7.3"
+gem "mini_magick"
 
 gem 'devise' #install devise for users
 	#rails generate devise:install

@@ -12,6 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require tinymce
-//= require tinymce-jquery
+//= require ckeditor/init
 //= require_tree .

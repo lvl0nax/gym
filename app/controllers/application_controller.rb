@@ -29,4 +29,20 @@ class ApplicationController < ActionController::Base
       return false
     end
   end
+
+  protected
+
+    def ckeditor_pictures_scope(options = {})
+      ckeditor_filebrowser_scope(options)
+    end
+
+    def ckeditor_attachment_files_scope(options = {})
+      ckeditor_filebrowser_scope(options)
+    end
+  
+  # protected
+
+  #   def ckeditor_filebrowser_scope(options = {})
+  #     super({ :assetable_id => current_user.id, :assetable_type => 'User' }.merge(options))
+  #   end
 end
