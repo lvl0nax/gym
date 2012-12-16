@@ -1,4 +1,6 @@
 Gymnastics::Application.routes.draw do
+  resources :txtinfos
+
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :articles

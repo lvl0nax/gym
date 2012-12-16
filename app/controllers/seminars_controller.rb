@@ -3,8 +3,10 @@ class SeminarsController < ApplicationController
   # GET /seminars
   # GET /seminars.json
   def index
-    @seminars = Seminar.all
-
+    @seminars1 = Seminar.where(semtype: 1).all
+    @seminars2 = Seminar.where(semtype: 2).all
+    @txt1 = Txtinfo.where(tag: "program1").first
+    @txt2 = Txtinfo.where(tag: "program2").first
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @seminars }
@@ -17,7 +19,7 @@ class SeminarsController < ApplicationController
     @seminar = Seminar.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render layout: false }# show.html.erb
       format.json { render json: @seminar }
     end
   end
@@ -45,7 +47,7 @@ class SeminarsController < ApplicationController
 
     respond_to do |format|
       if @seminar.save
-        format.html { redirect_to @seminar, notice: 'Seminar was successfully created.' }
+        format.html { redirect_to seminars_path, notice: 'Seminar was successfully created.' }
         format.json { render json: @seminar, status: :created, location: @seminar }
       else
         format.html { render action: "new" }
@@ -61,7 +63,7 @@ class SeminarsController < ApplicationController
 
     respond_to do |format|
       if @seminar.update_attributes(params[:seminar])
-        format.html { redirect_to @seminar, notice: 'Seminar was successfully updated.' }
+        format.html { redirect_to seminars_path, notice: 'Seminar was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

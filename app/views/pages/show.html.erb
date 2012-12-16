@@ -5,7 +5,6 @@
 </div>
 
 <div class="descr">
-  <%= image_tag @page.image.medium.url unless @page.image.blank?%>
   <%= raw @page.content %>
 </div>
 <div class="for_clear"></div>
@@ -29,4 +28,25 @@
   <%= link_to 'Edit', edit_page_path(@page) %> |
   <%= link_to 'Back', pages_path %>
 
+<% end %>
+
+<% if @articles %>
+  <% @articles.each do |a| %>
+    <div class="specoffer">  
+      <div class="so_content" >
+        <h2 class="red-title"> <%=  a.name %> </h2>
+        <div class="body<%= a.id %>"></div>
+      </div>
+      <div class="for_clear"></div>
+      <div class="more<%= a.id %> mc" data-id="<%= a.id %>" onclick="showart(<%= a.id %>);">ПОДРОБНЕЕ</div>
+      <div class="close<%= a.id %> mc" data-id="<%= a.id %>" onclick="closeart(<%= a.id %>);" style="display: none;">СКРЫТЬ</div>
+      <div class="nplinks">
+        <% if current_user.try(:isAdmin?)   %>
+          <%= link_to 'Подробнее', a %>
+          <%= link_to 'Редактировать', edit_article_path(a) %>
+          <%= link_to 'Удалить', a, confirm: 'Вы уверены?', method: :delete %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 <% end %>

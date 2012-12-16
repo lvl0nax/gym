@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tag:</b>
+  <%= @txtinfo.tag %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @txtinfo.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_txtinfo_path(@txtinfo) %> |
+<%= link_to 'Back', txtinfos_path %>

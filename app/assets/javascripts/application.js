@@ -14,3 +14,55 @@
 //= require jquery_ujs
 //= require ckeditor/init
 //= require_tree .
+function showsem(id)
+{
+	var tmp = ".body" + id;
+	$.ajax({
+		type: "GET",
+    url: "/seminars/" + id,
+    success: function(data, status, jqXHR){ 
+    	$(tmp).html("<br/><br/><p>ПОДРОБНАЯ ИНФОРМАЦИЯ</p>" + data + "<br/><br/>"). css("display", "block");
+    	$(".more" + id).css("display", " none");
+    	$(".close" + id).css("display", " block");
+    }
+  });
+}
+
+function closesem(id){
+	var tmp = ".body" + id;
+	$(tmp).html(""). css("display", " none");
+	$(".close" + id).css("display", " none");
+	$(".more" + id).css("display", " block");
+}
+
+function showart(id)
+{
+	var tmp = ".body" + id;
+	$.ajax({
+		type: "GET",
+    url: "/articles/" + id,
+    success: function(data, status, jqXHR){ 
+    	$(tmp).html("<br/><br/><p>ПОДРОБНАЯ ИНФОРМАЦИЯ</p>" + data + "<br/><br/>"). css("display", "block");
+    	$(".more" + id).css("display", " none");
+    	$(".close" + id).css("display", " block");
+    }
+  });
+}
+
+function closeart(id){
+	var tmp = ".body" + id;
+	$(tmp).html(""). css("display", " none");
+	$(".close" + id).css("display", " none");
+	$(".more" + id).css("display", " block");
+}
+
+function smnrtgl1(){
+	$("#close1").toggle();
+	$(".semshow1").toggle();
+	$(".semhide1").toggle();
+}
+function smnrtgl2(){
+	$("#close2").toggle();
+	$(".semshow2").toggle();
+	$(".semhide2").toggle();
+}

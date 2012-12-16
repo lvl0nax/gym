@@ -1,9 +1,14 @@
 <h1 class="newstitle">Филиалы</h1>
 
 <% @filials.each do |f| %>
+  <% if current_user.try(:isAdmin?)   %>
+    <%= link_to 'Создать филиал', new_filial_path %>
+  <% end %>
+  <br />
+  <br />
   <div class="specoffer">  
     <div class="so_img"> <%= image_tag  f.photo.thumb.url %> </div>
-    <div class="so_content"  >
+    <div class="so_content" >
       <h2> <%= f.title %> </h2>
       <%= f.shortc %>
     </div>
@@ -16,10 +21,4 @@
       <% end %>
     </div>
   </div>
-<% end %>
-
-
-<br />
-<% if current_user.try(:isAdmin?)   %>
-  <%= link_to 'Создать филиал', new_filial_path %>
 <% end %>

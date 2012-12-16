@@ -1,17 +1,61 @@
-<h1 class="newstitle">Семинары</h1>
-
-<% @seminars.each do |seminar| %>
-  <div class="newspage">  
-    <div class="date"> <%= seminar.created_at.to_s(:db)%> </div>
-    <h2> <%= link_to seminar.title, seminar %> </h2>
-    <%= seminar.shortc %>
-    <div class="nplinks">
-      <%= link_to 'Подробнее', seminar %>
-      <% if current_user.try(:isAdmin?)   %>
-          <%= link_to 'Редактировать', edit_seminar_path(seminar) %>
-          <%= link_to 'Удалить', seminar, confirm: 'Вы уверены?', method: :delete %>
-      <% end %>
-
-    </div>
+<h1 class="newstitle">Программы</h1>
+<div class="prblock1">
+  <div class="prtext">
+    <%= raw @txt1.try(:content) %>
   </div>
-<% end %>
+  <div id="toshow1" onclick="smnrtgl1();">
+    <div class="semshow1" style="display: block;">ПОКАЗАТЬ</div>
+    <div class="semhide1" style="display: none;">СКРЫТЬ</div>
+  </div>
+  <div id="close1">
+    <% @seminars1.each do |seminar| %>
+      <div class="specoffer">  
+        <div class="so_content" >
+          <h2 class="red-title"> <%= link_to seminar.title, seminar %> </h2>
+          <div class="body"><%= seminar.shortc %></div>
+          <div class="body<%= seminar.id %>"></div>
+        </div>
+        <div class="for_clear"></div>
+        <div class="more<%= seminar.id %> mc" data-id="<%= seminar.id %>" onclick="showsem(<%= seminar.id %>);">ПОДРОБНЕЕ</div>
+        <div class="close<%= seminar.id %> mc" data-id="<%= seminar.id %>" onclick="closesem(<%= seminar.id %>);" style="display: none;">СКРЫТЬ</div>
+        <div class="nplinks">
+          <% if current_user.try(:isAdmin?)   %>
+            <%= link_to 'Подробнее', seminar %>
+            <%= link_to 'Редактировать', edit_seminar_path(seminar) %>
+            <%= link_to 'Удалить', seminar, confirm: 'Вы уверены?', method: :delete %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="prblock1">
+  <div class="prtext">
+    <%= raw @txt2.try(:content) %>
+  </div>
+  <div id="toshow2" onclick="smnrtgl2();">
+    <div class="semshow2" style="display: block;">ПОКАЗАТЬ</div>
+    <div class="semhide2" style="display: none;">СКРЫТЬ</div>
+  </div>
+  <div id="close2">
+    <% @seminars2.each do |seminar| %>
+      <div class="specoffer">  
+        <div class="so_content" >
+          <h2 class="red-title"> <%= link_to seminar.title, seminar %> </h2>
+          <div class="body"><%= seminar.shortc %></div>
+          <div class="body<%= seminar.id %>"></div>
+        </div>
+        <div class="for_clear"></div>
+        <div class="more<%= seminar.id %> mc" data-id="<%= seminar.id %>" onclick="showsem(<%= seminar.id %>);">ПОДРОБНЕЕ</div>
+        <div class="close<%= seminar.id %> mc" data-id="<%= seminar.id %>" onclick="closesem(<%= seminar.id %>);" style="display: none;">СКРЫТЬ</div>
+        <div class="nplinks">
+          <% if current_user.try(:isAdmin?)   %>
+            <%= link_to 'Подробнее', seminar %>
+            <%= link_to 'Редактировать', edit_seminar_path(seminar) %>
+            <%= link_to 'Удалить', seminar, confirm: 'Вы уверены?', method: :delete %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

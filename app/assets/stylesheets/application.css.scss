@@ -94,11 +94,10 @@ $main-width: 950px;
 }
 
 .logo{
-	margin-left: 300px;
+	text-align:center;
 }
 .logo img{
 	position: relative;
-	width: 350px;
 	-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
 	box-shadow: 3px 3px 7px #aa128F;
   -webkit-box-shadow: 3px 3px 7px #aa128F;
@@ -118,7 +117,7 @@ $main-width: 950px;
 .content-top{
 	position: relative;
 	width: $main-width;
-	height: 180px;
+	height: 105px;
 	margin: 0 auto;
 }
 
@@ -210,12 +209,53 @@ h1.newstitle{color:#da4471;}
 .specoffer{
   padding: 10px; /*border-bottom: 1px #688daa solid;*/
   -moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
-  box-shadow: 3px 3px 7px #688daa;
-  -webkit-box-shadow: 3px 3px 7px #688daa;
-  -moz-box-shadow: 3px 3px 7px #688daa;
+  box-shadow: 3px 3px 7px #AA128F;
+  -webkit-box-shadow: 3px 3px 7px #AA128F;
+  -moz-box-shadow: 3px 3px 7px #AA128F;
   background-color: white;
 	h2{color:#688daa;}
 	img{float: left; padding-right: 10px; }
 }
+
+.prblock1{
+  padding: 10px; /*border-bottom: 1px #688daa solid;*/
+  -moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
+  box-shadow: 3px 3px 7px #AA128F;
+  -webkit-box-shadow: 3px 3px 7px #AA128F;
+  -moz-box-shadow: 3px 3px 7px #AA128F;
+}
+.prtext{
+	padding: 10px;
+}
+
 .so_img {}
 .for_clear{clear:left;}
+
+.red-title a{ color: #F9F;}
+.red-title a:hover{ color: #DA4471;}
+
+.mc{
+	color: #F9F;
+	cursor: pointer;
+}
+.mc:hover{ color: #DA4471; cursor: pointer;}
+
+#toshow1, #toshow2{
+	width: 100%;
+	background-color: #FCF;
+	color: #DA4471;
+	text-align: center;
+}
+#toshow1:hover{
+	background-color: #F9F;
+	cursor:pointer; 
+}
+
+#toshow2:hover{
+	background-color: #F9F;
+	cursor:pointer; 
+}
+
+#close1, #close2{
+	display: none;
+}

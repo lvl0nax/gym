@@ -4,7 +4,7 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :photo %>
-    <%= f.input :description %>
+    <%= f.input :description, :as => :ckeditor, :label => false, :input_html => { :toolbar => 'Full' } %>
     <%= f.input :meta_title %>
     <%= f.input :meta_desc %>
     <%= f.input :meta_key %>

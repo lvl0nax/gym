@@ -5,3 +5,6 @@ class Ckeditor::Picture < Ckeditor::Asset
     url(:content)
   end
 end
+
+class Picture < Ckeditor::Picture
+end

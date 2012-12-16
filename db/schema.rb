@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121127022304) do
+ActiveRecord::Schema.define(:version => 20121216182205) do
 
   create_table "answers", :force => true do |t|
     t.text     "content"
@@ -124,6 +124,14 @@ ActiveRecord::Schema.define(:version => 20121127022304) do
     t.string   "meta_title"
     t.text     "meta_desc"
     t.string   "meta_key"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "semtype"
+  end
+
+  create_table "txtinfos", :force => true do |t|
+    t.string   "tag"
+    t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  before_filter :admin_require
   # GET /answers
   # GET /answers.json
   def index

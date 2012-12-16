@@ -28,7 +28,8 @@
   <div id="container">
     <div class="content-top">
       <div class="logo">
-        <%= image_tag "/assets/logo.jpg" %>
+        <%= image_tag "/assets/logo_text2.jpg" %>
+        <%= image_tag "/assets/logo3.jpg" %>
       </div>
       
       <div class="login-links">
@@ -46,7 +47,7 @@
     </div>
 
     <div class="top-image">
-      Здесь могла быть ваша реклама.
+      <%= image_tag "faceline.jpg" %>
     </div>
     <div id="content-body">
       <% if current_user.try(:isAdmin?)   %>
@@ -55,15 +56,17 @@
           <%= link_to "Страницу", new_page_path %>|
           <%= link_to "Новость", new_newspage_path %>|
           <%= link_to "Филиал", new_filial_path %> |
-          <%= link_to "Семинар", new_seminar_path %> |
-          <%= link_to "Галерею", new_seminar_path %> |
+          <%= link_to "Программу", new_seminar_path %> |
+          <%= link_to "Текст", new_txtinfo_path %> |
+          <%= link_to "Статью", new_article_path %> |
+          <%= link_to "Галерею", new_seminar_path %> 
         </div>
       <% end %>
       <div class="top-menu">
         <% @pages.each do |p|%>
           <%= link_to p do %>
             <div class="mbutton">
-              <%= p.title %>
+              <%= p.try(:title) %>
             </div>
           <% end %>
         <% end %>
@@ -74,7 +77,7 @@
         <% end %>
         <%= link_to seminars_path do %>
           <div class="mbutton">
-            Семинары
+            Программы
           </div>
         <% end %>
         <% if current_user.try(:isAdmin?)   %>
