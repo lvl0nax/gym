@@ -22,6 +22,8 @@ gem "simple_form" #install simple form
 
 gem "carrierwave"
 	#rails generate uploader Photo
+gem 'mime-types', :require => 'mime/types'
+gem 'rmagick'
 
 
 # Gems used only for assets and not required

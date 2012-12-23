@@ -1,35 +1,32 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @instructor.name %>
-</p>
-
-<p>
-  <b>Photo:</b>
-  <%= @instructor.photo %>
-</p>
-
-<p>
-  <b>Description:</b>
+<h3>
+  <%= @instructor.name %> 
+  /
+  <%= @instructor.try(:filial).try(:title) %>
+</h3>
+<div>
+  <%= image_tag @instructor.photo.large.url %>
+</div>
+<div>
   <%= @instructor.description %>
-</p>
+</div>
+<% if current_user.try(:isAdmin?)   %>
+  <p>
+    <b>Meta title:</b>
+    <%= @instructor.meta_title %>
+  </p>
 
-<p>
-  <b>Meta title:</b>
-  <%= @instructor.meta_title %>
-</p>
+  <p>
+    <b>Meta desc:</b>
+    <%= @instructor.meta_desc %>
+  </p>
 
-<p>
-  <b>Meta desc:</b>
-  <%= @instructor.meta_desc %>
-</p>
-
-<p>
-  <b>Meta key:</b>
-  <%= @instructor.meta_key %>
-</p>
+  <p>
+    <b>Meta key:</b>
+    <%= @instructor.meta_key %>
+  </p>
 
 
-<%= link_to 'Edit', edit_instructor_path(@instructor) %> |
-<%= link_to 'Back', instructors_path %>
+  <%= link_to 'Edit', edit_instructor_path(@instructor) %> |
+  <%= link_to 'Back', instructors_path %>
+<% end %>

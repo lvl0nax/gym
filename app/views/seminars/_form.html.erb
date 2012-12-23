@@ -4,7 +4,7 @@
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :shortc %>
-    <%= f.input :content %>
+    <%= f.input :content, :as => :ckeditor, :label => false, :input_html => { :toolbar => 'Full' }  %>
     <%= f.input :semtype, :hint => '1 - для начинающих / 2 - для продвинутых' %>
     <%= f.input :meta_title %>
     <%= f.input :meta_desc %>

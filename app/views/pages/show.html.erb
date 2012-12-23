@@ -33,6 +33,7 @@
 <% if @articles %>
   <% @articles.each do |a| %>
     <div class="specoffer">  
+      <div class="so_img"> <%= image_tag  a.photo.thumb.url %> </div>
       <div class="so_content" >
         <h2 class="red-title"> <%=  a.name %> </h2>
         <div class="body<%= a.id %>"></div>

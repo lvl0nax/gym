@@ -19,6 +19,9 @@ class PagesController < ApplicationController
     if (@page.title == "Об авторе")
       @articles = Article.all
     end
+    @seokeys = @page.meta_title
+    @seodesc = @page.meta_desc
+    @title = @page.meta_title
     respond_to do |format|
       format.html  # show.html.erb
       format.json { render json: @page }

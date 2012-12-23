@@ -1,9 +1,9 @@
 <h1>Listing txtinfos</h1>
+<%= link_to 'New Txtinfo', new_txtinfo_path %>
 
 <table>
   <tr>
     <th>Tag</th>
-    <th>Content</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,7 +12,6 @@
 <% @txtinfos.each do |txtinfo| %>
   <tr>
     <td><%= txtinfo.tag %></td>
-    <td><%= txtinfo.content %></td>
     <td><%= link_to 'Show', txtinfo %></td>
     <td><%= link_to 'Edit', edit_txtinfo_path(txtinfo) %></td>
     <td><%= link_to 'Destroy', txtinfo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -22,4 +21,3 @@
 
 <br />
 
-<%= link_to 'New Txtinfo', new_txtinfo_path %>
