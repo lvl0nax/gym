@@ -61,48 +61,29 @@
           <%= link_to "Галерею", new_seminar_path %> 
         </div>
       <% end %>
-      <div class="top-menu">
-        <% @pages.each do |p|%>
-          <%= link_to p do %>
-            <div class="mbutton">
-              <%= p.try(:title) %>
-            </div>
-          <% end %>
-        <% end %>
-        <%= link_to  newspages_path do %>
-          <div class="mbutton">
-            Новости
-          </div>
-        <% end %>
-        <%= link_to seminars_path do %>
-          <div class="mbutton">
-            Программы
-          </div>
-        <% end %>
-        <% if current_user.try(:isAdmin?)   %>
-          <%= link_to filials_path do %>
-            <div class="mbutton">
-              Филиалы
-            </div>
-          <% end %>
-          <%= link_to pictures_path do %>
-            <div class="mbutton">
-              Галерея
-            </div>
-          <% end %>
-          <%= link_to questions_path do %>
-            <div class="mbutton">
-              Вопросы
-            </div>
-          <% end %>
-        <% end %>
-        <%= link_to @contacts do %>
-          <div class="mbutton">
-            Контакты
-          </div>
-        <% end %>
-      </div>
+      
+      <div id="new-menu">
+        <ul id="menu">
+          <li> <%= link_to "Информация", "#" %> 
+            <ul>
+              <% @pages.each do |p|%>
+                <li>
+                  <%= link_to p do %>
+                    <%= p.title %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
 
+          <li> <%= link_to "Новости", newspages_path %></li>
+          <li> <%= link_to "Программы", seminars_path %></li>
+          <li> <%= link_to "Филиалы", filials_path %></li>
+          <li> <%= link_to "Галерея", pictures_path %></li>
+          <li> <%= link_to "Вопросы", questions_path %></li>
+          <li> <%= link_to "Контакты", @contacts %></li>
+        </ul>
+      </div>
       
       <%= yield %>
     </div>
