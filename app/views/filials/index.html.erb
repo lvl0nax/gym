@@ -1,9 +1,9 @@
 <h1 class="newstitle">Филиалы</h1>
-
-<% @filials.each do |f| %>
   <% if current_user.try(:isAdmin?)   %>
     <%= link_to 'Создать филиал', new_filial_path %>
   <% end %>
+
+<% @filials.each do |f| %>
   <br />
   <br />
   <div class="specoffer">  

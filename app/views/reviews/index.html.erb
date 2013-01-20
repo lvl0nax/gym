@@ -1,0 +1,22 @@
+<h1 class="newstitle">Отзывы</h1>
+<% if current_user.try(:isAdmin?)   %>
+  <%= link_to 'New Review', new_review_path %>
+<% end %>
+<br />
+<br />
+  
+<% @reviews.each do |f| %>
+  <div class="specoffer">  
+    <div class="so_content" >
+      <h2> <%= f.name %> </h2>
+      <%= f.body %>
+    </div>
+    <div class="for_clear"></div>
+    <div class="nplinks">
+      <% if current_user.try(:isAdmin?)   %>
+          <%= link_to 'Edit', edit_filial_path(f) %>
+          <%= link_to 'Destroy', f, confirm: 'Are you sure?', method: :delete %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
