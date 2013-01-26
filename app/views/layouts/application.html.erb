@@ -10,9 +10,6 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
 
-  <script type="text/javascript" src="http://tinymce.moxiecode.com/js/tinymce/jscripts/tiny_mce/jquery.tinymce.js"></script>
-  <script type="text/javascript" src="http://tinymce.moxiecode.com/js/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
-
   <script type='text/javascript' charset='UTF-8'>
     $(document).ready(function(){  
       $('form[data-remote]').bind("ajax:before", function(){
@@ -28,8 +25,8 @@
   <div id="container">
     <div class="content-top">
       <div class="logo">
-        <%= image_tag "/assets/logo_text2.jpg" %>
-        <%= image_tag "/assets/logo3.jpg" %>
+        <%= image_tag "/assets/logo_text.jpg" %>
+        <%= image_tag "/assets/logo2.jpg" %>
       </div>
       
       <div class="login-links">
@@ -121,5 +118,31 @@
       <div id="popup"></div>
     </div>
   </div>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+  (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+          try {
+              w.yaCounter19638637 = new Ya.Metrika({id:19638637,
+                      clickmap:true,
+                      trackLinks:true,
+                      accurateTrackBounce:true});
+          } catch(e) { }
+      });
+
+      var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+      if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+  </script>
+  <noscript><div><img src="//mc.yandex.ru/watch/19638637" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
 </body>
 </html>
