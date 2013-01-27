@@ -1,5 +1,5 @@
 class InstructorsController < ApplicationController
-  before_filter :admin_require, :except => [:show, :index]
+  before_filter :admin_require, :except => [:show, :index, :short_desc]
   # GET /instructors
   # GET /instructors.json
   def index
@@ -17,7 +17,7 @@ class InstructorsController < ApplicationController
     @instructor = Instructor.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render layout: false }# show.html.erb
       format.json { render json: @instructor }
     end
   end
@@ -80,5 +80,10 @@ class InstructorsController < ApplicationController
       format.html { redirect_to instructors_url }
       format.json { head :no_content }
     end
+  end
+
+  def short_desc
+    a = Instructor.find(params[:id]).description.truncate(500)
+    render json: {text: a}
   end
 end

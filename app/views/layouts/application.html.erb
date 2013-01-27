@@ -76,8 +76,10 @@
           <li> <%= link_to "Новости", newspages_path %></li>
           <li> <%= link_to "Программы", seminars_path %></li>
           <li> <%= link_to "Филиалы", filials_path %></li>
-          <li> <%= link_to "Галерея", pictures_path %></li>
-          <li> <%= link_to "Вопросы", questions_path %></li>
+          <li> <%= link_to "Инструкторы", instructors_path %></li>
+          <% if current_user.try(:isAdmin?)   %>
+            <li> <%= link_to "Галерея", pictures_path %></li>
+          <% end %>
           <li> <%= link_to "Контакты", @contacts %></li>
         </ul>
       </div>

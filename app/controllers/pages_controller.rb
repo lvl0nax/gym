@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class PagesController < ApplicationController
-  before_filter :admin_require, :except => [:show, :index]
+  before_filter :admin_require, :except => [:show, :index, :short_desc]
   # GET /pages
   # GET /pages.json
   def index
@@ -86,5 +86,11 @@ class PagesController < ApplicationController
       format.html { redirect_to pages_url }
       format.json { head :no_content }
     end
+  end
+
+  def short_desc
+
+    a = Article.find(params[:id]).description.truncate(500)
+    render json: {text: a}
   end
 end

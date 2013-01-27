@@ -7,6 +7,9 @@ Gymnastics::Application.routes.draw do
 
   resources :articles
 
+  match 'shortdesc/:id' => 'pages#short_desc'
+  match 'shortdesci/:id' => 'instructors#short_desc'
+
   resources :instructors
 
   resources :movies
@@ -23,7 +26,9 @@ Gymnastics::Application.routes.draw do
 
   resources :filials
 
-  resources :pages
+  resources :pages do 
+    post :short_desc, on: :member
+  end
 
   devise_for :users
 

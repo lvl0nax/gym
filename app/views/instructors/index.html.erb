@@ -1,33 +1,22 @@
-<h1>Listing instructors</h1>
+<h1>Инструкторы</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Photo</th>
-    <th>Description</th>
-    <th>Meta title</th>
-    <th>Meta desc</th>
-    <th>Meta key</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @instructors.each do |instructor| %>
-  <tr>
-    <td><%= instructor.name %></td>
-    <td><%= instructor.photo %></td>
-    <td><%= instructor.description %></td>
-    <td><%= instructor.meta_title %></td>
-    <td><%= instructor.meta_desc %></td>
-    <td><%= instructor.meta_key %></td>
-    <td><%= link_to 'Show', instructor %></td>
-    <td><%= link_to 'Edit', edit_instructor_path(instructor) %></td>
-    <td><%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% @instructors.each do |a| %>
+  <div class="specoffer">  
+    <div class="so_img"> <%= image_tag a.photo.thumb.url unless a.photo.blank?%> </div>
+    <div class="so_content" >
+      <h2 class="red-title"> <%=  a.name %> </h2>
+      <h2 class="red1-title">Филиал: <%= link_to a.filial.title, a.filial %> </h2>
+      <div class="body<%= a.id %>"><%= raw a.description.truncate(500) %></div>
+    </div>
+    <div class="for_clear"></div>
+    <div class="more<%= a.id %> mc" data-id="<%= a.id %>" onclick="showinst(<%= a.id %>);">ПОДРОБНЕЕ</div>
+    <div class="close<%= a.id %> mc" data-id="<%= a.id %>" onclick="closeinst(<%= a.id %>);" style="display: none;">СКРЫТЬ</div>
+    <div class="nplinks">
+      <% if current_user.try(:isAdmin?)   %>
+        <%= link_to 'Подробнее', a %>
+        <%= link_to 'Редактировать', edit_instructor_path(a) %>
+        <%= link_to 'Удалить', a, confirm: 'Вы уверены?', method: :delete %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Instructor', new_instructor_path %>

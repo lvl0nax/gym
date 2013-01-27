@@ -35,6 +35,31 @@ function closesem(id){
 	$(".more" + id).css("display", " block");
 }
 
+function showinst(id)
+{
+	var tmp = ".body" + id;
+	$.ajax({
+		type: "GET",
+    url: "/instructors/" + id,
+    success: function(data, status, jqXHR){ 
+    	$(tmp).html(data + "<br/><br/>"). css("display", "block");
+    	$(".more" + id).css("display", " none");
+    	$(".close" + id).css("display", " block");
+    }
+  });
+}
+
+function closeinst(id){
+	var tmp = ".body" + id;
+	var txt;
+	$.post("/shortdesci/"+id,
+    function(data){
+	    $(tmp).html("").html(data.text).text();
+  }, "json");
+	$(".close" + id).css("display", " none");
+	$(".more" + id).css("display", " block");
+}
+
 function showart(id)
 {
 	var tmp = ".body" + id;
@@ -42,7 +67,7 @@ function showart(id)
 		type: "GET",
     url: "/articles/" + id,
     success: function(data, status, jqXHR){ 
-    	$(tmp).html("<br/><br/><p>ПОДРОБНАЯ ИНФОРМАЦИЯ</p>" + data + "<br/><br/>"). css("display", "block");
+    	$(tmp).html(data + "<br/><br/>"). css("display", "block");
     	$(".more" + id).css("display", " none");
     	$(".close" + id).css("display", " block");
     }
@@ -51,7 +76,14 @@ function showart(id)
 
 function closeart(id){
 	var tmp = ".body" + id;
-	$(tmp).html(""). css("display", " none");
+	var txt;
+	$.post("/shortdesc/"+id,
+    function(data){
+	    /*alert(data.text);
+	    /*console.log(data.text);*/
+	    $(tmp).html("").html(data.text).text();
+  }, "json");
+	 /* css("display", " none");*/
 	$(".close" + id).css("display", " none");
 	$(".more" + id).css("display", " block");
 }
