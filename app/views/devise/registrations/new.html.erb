@@ -5,16 +5,26 @@
 
   <div class="form-inputs">
     <%= f.input :name, :required => true, label: "Имя" %>
+    <br/>
     <%= f.input :surname, :required => true, label: "Фамилия" %>
+    <br/>
     <%= f.input :patronymic, label: "Отчество" %>
+    <br/>
     <%= f.input :birthday, :required => true, label: "День Рождения" %>
+    <br/>
     <%= f.input :country, label: "Страна", as: :string %>
+    <br/>
     <%= f.input :city, :required => true, label: "Город" %>
+    <br/>
     <%= f.input :phone, label: "Телефон" %>
+    <br/>
     <%= f.input :email, :required => true, :autofocus => true %>
+    <br/>
     <%= f.input :password, :required => true, label: "Пароль" %>
+    <br/>
     <%= f.input :password_confirmation, :required => true, label: "Подтверждение пароля" %>
   </div>
+  <br/>
 
   <div class="form-actions">
     <%= f.button :submit, "Регистрация" %>

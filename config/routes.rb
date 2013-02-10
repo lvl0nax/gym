@@ -1,4 +1,9 @@
 Gymnastics::Application.routes.draw do
+  
+  resources :albums do
+    resources :pics
+  end
+
   resources :reviews
 
   resources :txtinfos
@@ -13,8 +18,6 @@ Gymnastics::Application.routes.draw do
   resources :instructors
 
   resources :movies
-
-  resources :pictures
 
   resources :seminars
 

@@ -55,13 +55,14 @@
           <%= link_to "Текст", txtinfos_path %> |
           <%= link_to "Статью", new_article_path %> |
           <%= link_to "Инструктора", new_instructor_path %> |
-          <%= link_to "Галерею", new_seminar_path %> 
+          <%= link_to "альбом", new_album_path %> |
+          <%= link_to "Галерею", new_seminar_path %>
         </div>
       <% end %>
-      
+
       <div id="new-menu">
         <ul id="menu">
-          <li> <%= link_to "Информация", "#" %> 
+          <li> <%= link_to "Информация", "#" %>
             <ul>
               <% @pages.each do |p|%>
                 <li>
@@ -78,7 +79,7 @@
           <li> <%= link_to "Филиалы", filials_path %></li>
           <li> <%= link_to "Инструкторы", instructors_path %></li>
           <% if current_user.try(:isAdmin?)   %>
-            <li> <%= link_to "Галерея", pictures_path %></li>
+            <li> <%= link_to "Галерея", albums_path %></li>
           <% end %>
           <li> <%= link_to "Контакты", @contacts %></li>
         </ul>
@@ -104,7 +105,7 @@
           <%= link_to filials_path do %>
               Филиалы
           <% end %>
-          <%= link_to pictures_path do %>
+          <%= link_to pics_path do %>
               Галерея
           <% end %>
           <%= link_to questions_path do %>

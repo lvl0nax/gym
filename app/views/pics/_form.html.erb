@@ -1,9 +1,9 @@
-<%= simple_form_for(@picture) do |f| %>
+<%= simple_form_for([@album, @picture]) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :photo %>
     <%= f.input :alt %>
+    <%= f.input :photo %>
     <%= f.input :description %>
   </div>
 
@@ -11,3 +11,4 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+<%= @album.name %>

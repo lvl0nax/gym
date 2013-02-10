@@ -1,10 +1,10 @@
-class PicturesController < ApplicationController
-  before_filter :admin_require, :except => [:show, :index]
+class PicsController < ApplicationController
+  before_filter :admin_require, :except => [:show]
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = Picture.all
-
+    @pictures = Pic.all
+    @album = Album.find(params[:album_id])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @pictures }
@@ -14,8 +14,8 @@ class PicturesController < ApplicationController
   # GET /pictures/1
   # GET /pictures/1.json
   def show
-    @picture = Picture.find(params[:id])
-
+    @picture = Pic.find(params[:id])
+    @album = Album.find(params[:album_id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @picture }
@@ -25,8 +25,8 @@ class PicturesController < ApplicationController
   # GET /pictures/new
   # GET /pictures/new.json
   def new
-    @picture = Picture.new
-
+    @picture = Pic.new
+    @album = Album.find(params[:album_id])
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @picture }
@@ -35,17 +35,17 @@ class PicturesController < ApplicationController
 
   # GET /pictures/1/edit
   def edit
-    @picture = Picture.find(params[:id])
+    @picture = Pic.find(params[:id])
   end
 
   # POST /pictures
   # POST /pictures.json
   def create
-    @picture = Picture.new(params[:picture])
-
+    @picture = Pic.new(params[:pic])
+    @picture.album = Album.find(params[:album_id])
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
+        format.html { redirect_to @picture.album, notice: 'Picture was successfully created.' }
         format.json { render json: @picture, status: :created, location: @picture }
       else
         format.html { render action: "new" }
@@ -57,10 +57,10 @@ class PicturesController < ApplicationController
   # PUT /pictures/1
   # PUT /pictures/1.json
   def update
-    @picture = Picture.find(params[:id])
+    @picture = Pic.find(params[:id])
 
     respond_to do |format|
-      if @picture.update_attributes(params[:picture])
+      if @picture.update_attributes(params[:pic])
         format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
         format.json { head :no_content }
       else
@@ -73,11 +73,12 @@ class PicturesController < ApplicationController
   # DELETE /pictures/1
   # DELETE /pictures/1.json
   def destroy
-    @picture = Picture.find(params[:id])
+    @picture = Pic.find(params[:id])
+    @album = Album.find(params[:album_id])
     @picture.destroy
 
     respond_to do |format|
-      format.html { redirect_to pictures_url }
+      format.html { redirect_to albums_url }
       format.json { head :no_content }
     end
   end

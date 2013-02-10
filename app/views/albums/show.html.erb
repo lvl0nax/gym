@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<% if current_user.try(:isAdmin?)   %>
+  <%= link_to 'Новое фото', new_album_pic_path(@album) %> |
+  <%= link_to 'Редактировать', edit_album_path(@album) %> |
+  <%= link_to 'К списку альбомов', albums_path %>
+  <%= link_to 'Удалить альбом', @album, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<h2>
+  <%= @album.name %>
+</h2>
+
+<p>
+  <%= @album.description %>
+</p>
+<br/>
+
+<div class="set">
+  <% @album.pics.each do |pic| %>
+    <%= link_to pic.photo.url, rel: "lightbox[roadtrip]", title: pic.description do %>
+      <%= image_tag pic.photo.small.url, alt: pic.alt %>
+    <% end %>
+  <% end %>
+</div>
+
+
