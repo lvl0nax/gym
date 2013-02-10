@@ -1,5 +1,5 @@
 class PicsController < ApplicationController
-  before_filter :admin_require, :except => [:show]
+  before_filter :admin_require
   # GET /pictures
   # GET /pictures.json
   def index
