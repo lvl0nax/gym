@@ -55,8 +55,7 @@
           <%= link_to "Текст", txtinfos_path %> |
           <%= link_to "Статью", new_article_path %> |
           <%= link_to "Инструктора", new_instructor_path %> |
-          <%= link_to "альбом", new_album_path %> |
-          <%= link_to "Галерею", new_seminar_path %>
+          <%= link_to "альбом", new_album_path %> 
         </div>
       <% end %>
 
@@ -105,11 +104,8 @@
           <%= link_to filials_path do %>
               Филиалы
           <% end %>
-          <%= link_to pics_path do %>
+          <%= link_to albums_path do %>
               Галерея
-          <% end %>
-          <%= link_to questions_path do %>
-              Вопросы
           <% end %>
         <% end %>
         <%= link_to @contacts do %>
