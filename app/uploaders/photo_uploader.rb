@@ -51,13 +51,10 @@ class PhotoUploader < CarrierWave::Uploader::Base
     resize_to_limit(300, 300)
   end
 
-  version :small_thumb do
+  version :smallthumb do
     resize_to_limit(150, 150)
   end
 
-  version :large do
-    resize_to_limit(300, 300)
-  end
   version :small do
     resize_to_limit(850, 150)
   end
