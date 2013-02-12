@@ -20,6 +20,10 @@
     <%= link_to pic.photo.url, rel: "lightbox[roadtrip]", title: pic.description do %>
       <%= image_tag pic.photo.small.url, alt: pic.alt %>
     <% end %>
+    <% if current_user.try(:isAdmin?) %>
+      <%= link_to "Удалить", url_for([@album, pic]), method: :delete, confirm: "Подумай, а стоит ли оно того?)"%>
+      |
+    <% end %>
   <% end %>
 </div>
 

@@ -127,7 +127,7 @@ $main-width: 950px;
 
 .top-menu{
 	width: inherit;
-	height: 40px;	
+	height: 40px;
 	width: $main-width;
 	border-bottom: 2px solid #feb9fa;
 }
@@ -170,14 +170,14 @@ a:hover div.mbutton{
   padding: 20px;
 }
 #content-footer{
-  z-index: 10; position: absolute; bottom: 0; left: 50%; 
+  z-index: 10; position: absolute; bottom: 0; left: 50%;
   margin: 0 0 0 -475px; width: $main-width; height: 40px; padding: 20px 0 15px;
 }
 .title h1{color:#da4471; font-weight: bold; margin-left: 20px;}
 
-.date{ 
-	color: #da4471; 
-	font-family: 'Times New Roman'; 
+.date{
+	color: #da4471;
+	font-family: 'Times New Roman';
 	font-style: italic;
 }
 h1.newstitle{color:#da4471;}
@@ -194,7 +194,7 @@ h1.newstitle{color:#da4471;}
 
 .admin-links{
   background-color: #ccc;
-  width: $main-width; height: 20px; 
+  width: $main-width; height: 20px;
   -moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
   color: black;
   margin-top: -16px
@@ -256,12 +256,12 @@ h1.newstitle{color:#da4471;}
 }
 #toshow1:hover{
 	background-color: #F9F;
-	cursor:pointer; 
+	cursor:pointer;
 }
 
 #toshow2:hover{
 	background-color: #F9F;
-	cursor:pointer; 
+	cursor:pointer;
 }
 
 #close1, #close2{
@@ -276,7 +276,7 @@ h1.newstitle{color:#da4471;}
 	/* position:absolute;
 	// top:100px;
 	// left:50px;*/
-		
+
 }
 #menu > li {
 	display:inline-block;
@@ -286,7 +286,7 @@ h1.newstitle{color:#da4471;}
 
 #menu a:hover {
 	background-color: #FCF;
-	
+
 }
 
 #menu a {
@@ -301,19 +301,19 @@ h1.newstitle{color:#da4471;}
 	height:20px;
 	padding:10px;
 	border:1px solid #DA4471;
-	border-radius:5px;						
+	border-radius:5px;
 }
 #menu > li:hover > a {
-	color:#DA4471;	
+	color:#DA4471;
 }
 #menu > li > ul {
 	position:absolute;
 	top:42px;
 	left:0px;
-	display:none;	
+	display:none;
 }
 #menu > li:hover > ul {
-	display:block;	
+	display:block;
 }
 
 #menu > li:hover > ul > li {
@@ -326,7 +326,8 @@ h1.newstitle{color:#da4471;}
 	/*background-color:#f2f2f2;*/
 
 	border:1px solid #DA4471;
-	border-radius:5px;	
+	border-radius:5px;
 }
 
 .set a{text-decoration: none;}
+.round {border-radius:15px;}
