@@ -1,0 +1,10 @@
+<h1>Вопросы</h1>
+
+<% @questions.each do |q| %>
+  <p>
+    <%= q.title %> </br>
+    <%= q.content %>
+  </p>
+  <%= link_to 'Ответить.', '#', onclick: "make_answer(#{q.id});" %>
+<% end %>
+

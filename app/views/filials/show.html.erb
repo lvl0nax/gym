@@ -1,29 +1,50 @@
 <p id="notice"><%= notice %></p>
+<div class='filial'>
+  <div class="title">
+    <h1> <%= @filial.title %> </h1>
+  </div>
+  <div class="so_img"> <%= image_tag  @filial.photo.thumb.url %> </div>
+  <div class="so_content"> <%=raw @filial.content %> </div>
+  <div class="for_clear"></div>
+  <div class="nplinks"> <%= link_to 'Вернуться к списку филиалов', filials_path %> </div>
+  <% if current_user.try(:isAdmin?)   %>
+    <p>
+      <b>Meta title:</b>
+      <%= @filial.meta_title %>
+    </p>
 
-<div class="title">
-  <h1> <%= @filial.title %> </h1>
+    <p>
+      <b>Meta desc:</b>
+      <%= @filial.meta_desc %>
+    </p>
+
+    <p>
+      <b>Meta key:</b>
+      <%= @filial.meta_key %>
+    </p>
+
+
+    <%= link_to 'Edit', edit_filial_path(@filial) %>
+  <% end %>
 </div>
-<div class="so_img"> <%= image_tag  @filial.photo.thumb.url %> </div>
-<div>
-  <%= @filial.content %>
-</div>
-<div class="nplinks"> <%= link_to 'Вернуться к списку филиалов', filials_path %> </div>
-<% if current_user.try(:isAdmin?)   %>
-  <p>
-    <b>Meta title:</b>
-    <%= @filial.meta_title %>
-  </p>
-
-  <p>
-    <b>Meta desc:</b>
-    <%= @filial.meta_desc %>
-  </p>
-
-  <p>
-    <b>Meta key:</b>
-    <%= @filial.meta_key %>
-  </p>
-
-
-  <%= link_to 'Edit', edit_filial_path(@filial) %>
+<h2>Инструкторы:</h2>
+<% @instructors.each do |a| %>
+  <div class="specoffer">
+    <div class="so_img"> <%= image_tag a.photo.smallthumb.url, class: "image_#{a.id}" unless a.photo.blank?%> </div>
+    <div class="so_content" >
+      <h2 class="red-title"> <%=  a.name %> </h2>
+      <div class="body"><%= raw a.try(:shortdesc) %></div>
+      <div class="body<%= a.id %>"></div>
+    </div>
+    <div class="for_clear"></div>
+    <div class="more<%= a.id %> mc" onclick="showinst(<%= a.id %>,'<%= a.photo.thumb.url %>');">ПОДРОБНЕЕ</div>
+    <div class="close<%= a.id %> mc" onclick="closeinst(<%= a.id %>,'<%= a.photo.smallthumb.url %>');" style="display: none;">СКРЫТЬ</div>
+    <div class="nplinks">
+      <% if current_user.try(:isAdmin?)   %>
+        <%= link_to 'Подробнее', a %>
+        <%= link_to 'Редактировать', edit_instructor_path(a) %>
+        <%= link_to 'Удалить', a, confirm: 'Вы уверены?', method: :delete %>
+      <% end %>
+    </div>
+  </div>
 <% end %>

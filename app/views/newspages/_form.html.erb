@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
-    <%= f.input :shortc, label: "Краткое описание" %>
+    <%= f.input :shortc, label: "Краткое описание", :as => :ckeditor, :label => false, :input_html => { :toolbar => 'Full' }  %>
     <%= f.input :content, :as => :ckeditor, :label => false, :input_html => { :toolbar => 'Full' } %>
     <%= f.input :meta_title %>
     <%= f.input :meta_desc %>

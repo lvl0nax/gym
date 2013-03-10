@@ -15,6 +15,7 @@ class FilialsController < ApplicationController
   # GET /filials/1.json
   def show
     @filial = Filial.find(params[:id])
+    @instructors = @filial.instructors
 
     respond_to do |format|
       format.html # show.html.erb
@@ -45,7 +46,7 @@ class FilialsController < ApplicationController
 
     respond_to do |format|
       if @filial.save
-        format.html { redirect_to @filial, notice: 'Filial was successfully created.' }
+        format.html { redirect_to filials_path, notice: 'Filial was successfully created.' }
         format.json { render json: @filial, status: :created, location: @filial }
       else
         format.html { render action: "new" }

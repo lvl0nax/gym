@@ -1,10 +1,10 @@
 <h1 class="newstitle">Новости</h1>
 
 <% @newspages.each do |newspage| %>
-  <div class="newspage">  
+  <div class="newspage">
     <div class="date"> <%= newspage.created_at.to_s(:db)%> </div>
     <h2> <%= link_to newspage.title, newspage %> </h2>
-    <%= newspage.shortc %>
+    <%=raw newspage.shortc %>
     <div class="nplinks">
       <%= link_to 'Подробнее', newspage %>
       <% if current_user.try(:isAdmin?)   %>

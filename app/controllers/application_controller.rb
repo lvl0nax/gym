@@ -8,24 +8,25 @@ class ApplicationController < ActionController::Base
     @contacts = Page.where((:title).downcase => "контакты").first
     @pages = Page.all.to_a
     @pages.delete(@contacts)
+    @count = Question.where("id not in (select question_id from answers)").count
   end
 
   def admin_require
     unless is_admin?
-      deny_access 
-    end  
-  end  
-  
+      deny_access
+    end
+  end
+
   def deny_access
-    flash[:error] = "you have no accessible rights access denied." 
+    flash[:error] = "you have no accessible rights access denied."
     redirect_to root_path #root_url
   end
-  
+
 
   def is_admin?
     if current_user
       !!current_user.isAdmin?
-    else 
+    else
       return false
     end
   end
@@ -39,7 +40,7 @@ class ApplicationController < ActionController::Base
     def ckeditor_attachment_files_scope(options = {})
       ckeditor_filebrowser_scope(options)
     end
-  
+
   # protected
 
   #   def ckeditor_filebrowser_scope(options = {})

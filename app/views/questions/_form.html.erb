@@ -1,13 +1,14 @@
 <%= simple_form_for(@question) do |f| %>
   <%= f.error_notification %>
-
+  <div id="close" onclick="closepopup();">X</div>
   <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :content %>
-    <%= f.input :name %>
+    <%= f.input :title, label: "Заголовок" %>
+    <%= f.input :name, label: 'Ваше имя' %>
+    <%= f.input :email, label: 'Ваш email (на этот email придет извещение об ответе на Ваш вопрос)' %>
+    <%= f.input :content, label: 'Содержание', :input_html => { :cols => 69, :rows => 10 } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "Отправить вопрос" %>
   </div>
 <% end %>

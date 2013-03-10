@@ -1,10 +1,12 @@
+# -*- encoding : utf-8 -*-
 class QuestionsController < ApplicationController
-  before_filter :admin_require, :except => [:show, :index]
+  before_filter :admin_require, :except => [:create, :new, :index, :show]
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
-
+    #@questions = Question.all
+    # ищем ответы чтоб выводить только отвеченные вопросы
+    @answers = Answer.last(20).reverse
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @questions }
@@ -28,7 +30,7 @@ class QuestionsController < ApplicationController
     @question = Question.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render layout: false } # new.html.erb
       format.json { render json: @question }
     end
   end
@@ -45,7 +47,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        format.html { redirect_to questions_path, notice: 'Question was successfully created.' }
         format.json { render json: @question, status: :created, location: @question }
       else
         format.html { render action: "new" }
@@ -80,5 +82,9 @@ class QuestionsController < ApplicationController
       format.html { redirect_to questions_url }
       format.json { head :no_content }
     end
+  end
+
+  def list_no_answered
+    @questions = Question.where("id not in (select question_id from answers)")
   end
 end

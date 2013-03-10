@@ -9,10 +9,10 @@
   </div>
   <div id="close1">
     <% @seminars1.each do |seminar| %>
-      <div class="specoffer">  
+      <div class="specoffer">
         <div class="so_content" >
-          <h2 class="red-title"> <%= link_to seminar.title, seminar %> </h2>
-          <div class="body"><%= seminar.shortc %></div>
+          <h2 class="red-title"> <%= seminar.title %> </h2>
+          <div class="body"><%=raw seminar.try(:shortc) %></div>
           <div class="body<%= seminar.id %>"></div>
         </div>
         <div class="for_clear"></div>
@@ -39,10 +39,40 @@
   </div>
   <div id="close2">
     <% @seminars2.each do |seminar| %>
-      <div class="specoffer">  
+      <div class="specoffer">
         <div class="so_content" >
-          <h2 class="red-title"> <%= link_to seminar.title, seminar %> </h2>
-          <div class="body"><%= seminar.shortc %></div>
+          <h2 class="red-title"> <%= seminar.title %> </h2>
+          <div class="body"><%=raw seminar.shortc %></div>
+          <div class="body<%= seminar.id %>"></div>
+        </div>
+        <div class="for_clear"></div>
+        <div class="more<%= seminar.id %> mc" data-id="<%= seminar.id %>" onclick="showsem(<%= seminar.id %>);">ПОДРОБНЕЕ</div>
+        <div class="close<%= seminar.id %> mc" data-id="<%= seminar.id %>" onclick="closesem(<%= seminar.id %>);" style="display: none;">СКРЫТЬ</div>
+        <div class="nplinks">
+          <% if current_user.try(:isAdmin?)   %>
+            <%= link_to 'Подробнее', seminar %>
+            <%= link_to 'Редактировать', edit_seminar_path(seminar) %>
+            <%= link_to 'Удалить', seminar, confirm: 'Вы уверены?', method: :delete %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="prblock1">
+  <div class="prtext">
+    <%= raw @txt3.try(:content) %>
+  </div>
+  <div id="toshow3" onclick="smnrtgl3();">
+    <div class="semshow3" style="display: block;">ПОКАЗАТЬ</div>
+    <div class="semhide3" style="display: none;">СКРЫТЬ</div>
+  </div>
+  <div id="close3">
+    <% @seminars3.each do |seminar| %>
+      <div class="specoffer">
+        <div class="so_content" >
+          <h2 class="red-title"> <%= seminar.title %> </h2>
+          <div class="body"><%=raw seminar.shortc %></div>
           <div class="body<%= seminar.id %>"></div>
         </div>
         <div class="for_clear"></div>

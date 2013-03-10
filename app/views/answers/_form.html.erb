@@ -1,13 +1,15 @@
 <%= simple_form_for(@answer) do |f| %>
   <%= f.error_notification %>
-
+  <div id="close" onclick="closepopup();">X</div>
   <div class="form-inputs">
-    <%= f.input :content %>
-    <%= f.input :question_id, :input_html => {:value =>  @question.id} %>
+    <b><%= "Вопрос №: #{@question.id}" %></b><br/>
+    <b><%= " #{@question.try(:title)}" %></b>
 
+    <%= f.hidden_field :question_id, label: "Номер вопроса", input_html: {value: @question.id}, as: :string %>
+    <%= f.input :content, label: "Ответ", :input_html => { :cols => 69, :rows => 20 } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "Ответить" %>
   </div>
 <% end %>

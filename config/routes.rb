@@ -1,5 +1,5 @@
 Gymnastics::Application.routes.draw do
-  
+
   resources :albums do
     resources :pics
   end
@@ -23,13 +23,17 @@ Gymnastics::Application.routes.draw do
 
   resources :newspages
 
-  resources :questions
+  resources :questions do
+    collection do
+      get 'list_no_answered'
+    end
+  end
 
   resources :answers
 
   resources :filials
 
-  resources :pages do 
+  resources :pages do
     post :short_desc, on: :member
   end
 

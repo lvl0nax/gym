@@ -26,9 +26,9 @@ class AnswersController < ApplicationController
   # GET /answers/new.json
   def new
     @answer = Answer.new
-    @question = Question.find(params[:id])
+    @question = Question.find(params[:question_id])
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render layout: false }# new.html.erb
       format.json { render json: @answer }
     end
   end

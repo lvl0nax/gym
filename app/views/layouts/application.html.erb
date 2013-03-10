@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8'>
-  
+
   <title><%= seotitle%></title>
   <meta name="description" content="<%= seodescription %>" />
   <meta name="keywords" content="<%= seokeywords%>" />
@@ -11,7 +11,7 @@
   <%= javascript_include_tag "application" %>
 
   <script type='text/javascript' charset='UTF-8'>
-    $(document).ready(function(){  
+    $(document).ready(function(){
       $('form[data-remote]').bind("ajax:before", function(){
         for (instance in CKEDITOR.instances){
           CKEDITOR.instances[instance].updateElement();
@@ -28,7 +28,7 @@
         <%= image_tag "/assets/logo_text.jpg" %>
         <%= image_tag "/assets/logo2.jpg" %>
       </div>
-      
+
       <div class="login-links">
         <% if current_user %>
           <span><%= link_to current_user.email, edit_user_registration_path %></span> </br>
@@ -38,7 +38,7 @@
           <%= link_to "Регистрация", new_user_registration_path %>
         <% end %>
       </div>
-      
+
     </div>
 
     <div class="top-image">
@@ -47,7 +47,7 @@
     <div id="content-body">
       <% if current_user.try(:isAdmin?)   %>
         <div class="admin-links">
-          Создать:  
+          Создать:
           <%= link_to "Страницу", new_page_path %>|
           <%= link_to "Новость", new_newspage_path %>|
           <%= link_to "Филиал", new_filial_path %> |
@@ -55,7 +55,8 @@
           <%= link_to "Текст", txtinfos_path %> |
           <%= link_to "Статью", new_article_path %> |
           <%= link_to "Инструктора", new_instructor_path %> |
-          <%= link_to "альбом", new_album_path %> 
+          <%= link_to "альбом", new_album_path %> |
+          <%= link_to "Ответить на вопросы(#{@count})", list_no_answered_questions_path %>
         </div>
       <% end %>
 
@@ -79,11 +80,12 @@
           <li> <%= link_to "Инструкторы", instructors_path %></li>
           <% if current_user.try(:isAdmin?)   %>
             <li> <%= link_to "Галерея", albums_path %></li>
+            <li> <%= link_to "Вопросы", questions_path %></li>
           <% end %>
           <li> <%= link_to "Контакты", @contacts %></li>
         </ul>
       </div>
-      
+
       <%= yield %>
     </div>
 

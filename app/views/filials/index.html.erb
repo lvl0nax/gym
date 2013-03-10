@@ -6,11 +6,11 @@
 <% @filials.each do |f| %>
   <br />
   <br />
-  <div class="specoffer">  
-    <div class="so_img"> <%= image_tag  f.photo.thumb.url %> </div>
+  <div class="specoffer">
+    <div class="so_img"> <%= image_tag f.photo.smallthumb.url %> </div>
     <div class="so_content" >
       <h2> <%= f.title %> </h2>
-      <%= f.shortc %>
+      <%=raw f.shortc %>
     </div>
     <div class="for_clear"></div>
     <div class="nplinks">

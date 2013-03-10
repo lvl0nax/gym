@@ -16,85 +16,102 @@
 //= require_tree .
 function showsem(id)
 {
-	var tmp = ".body" + id;
-	$.ajax({
-		type: "GET",
+  var tmp = ".body" + id;
+  $.ajax({
+    type: "GET",
     url: "/seminars/" + id,
-    success: function(data, status, jqXHR){ 
-    	$(tmp).html("<br/><br/><p>ПОДРОБНАЯ ИНФОРМАЦИЯ</p>" + data + "<br/><br/>"). css("display", "block");
-    	$(".more" + id).css("display", " none");
-    	$(".close" + id).css("display", " block");
+    success: function(data, status, jqXHR){
+      $(tmp).html("<br/><br/><p>ПОДРОБНАЯ ИНФОРМАЦИЯ</p>" + data + "<br/><br/>"). css("display", "block");
+      $(".more" + id).css("display", " none");
+      $(".close" + id).css("display", " block");
     }
   });
 }
 
 function closesem(id){
-	var tmp = ".body" + id;
-	$(tmp).html(""). css("display", " none");
-	$(".close" + id).css("display", " none");
-	$(".more" + id).css("display", " block");
+  var tmp = ".body" + id;
+  $(tmp).html("").css("display", " none");
+  $(".close" + id).css("display", " none");
+  $(".more" + id).css("display", " block");
 }
 
-function showinst(id)
+function showinst(id, path)
 {
-	var tmp = ".body" + id;
-	$.ajax({
-		type: "GET",
+  var tmp = ".body" + id;
+  $.ajax({
+    type: "GET",
     url: "/instructors/" + id,
-    success: function(data, status, jqXHR){ 
-    	$(tmp).html(data + "<br/><br/>"). css("display", "block");
-    	$(".more" + id).css("display", " none");
-    	$(".close" + id).css("display", " block");
+    success: function(data, status, jqXHR){
+      $(tmp).html(data + "<br/><br/>"). css("display", "block");
+      $(".more" + id).css("display", " none");
+      $(".close" + id).css("display", " block");
+      $(".image_" + id).attr('src', path);
     }
   });
 }
 
-function closeinst(id){
-	var tmp = ".body" + id;
-	var txt;
-	$.post("/shortdesci/"+id,
-    function(data){
-	    $(tmp).html("").html(data.text).text();
-  }, "json");
-	$(".close" + id).css("display", " none");
-	$(".more" + id).css("display", " block");
+function closeinst(id, path){
+  var tmp = ".body" + id;
+  $(tmp).html("").css("display", " none");
+  $(".close" + id).css("display", " none");
+  $(".more" + id).css("display", " block");
+  $(".image_" + id).attr('src', path);
 }
 
-function showart(id)
+function showart(id, path)
 {
-	var tmp = ".body" + id;
-	$.ajax({
-		type: "GET",
+  var tmp = ".body" + id;
+  $.ajax({
+    type: "GET",
     url: "/articles/" + id,
-    success: function(data, status, jqXHR){ 
-    	$(tmp).html(data + "<br/><br/>"). css("display", "block");
-    	$(".more" + id).css("display", " none");
-    	$(".close" + id).css("display", " block");
+    success: function(data, status, jqXHR){
+      $(tmp).html(data + "<br/><br/>"). css("display", "block");
+      $(".more" + id).css("display", " none");
+      $(".close" + id).css("display", " block");
+      $(".image_" + id).attr('src', path);
     }
   });
 }
 
-function closeart(id){
-	var tmp = ".body" + id;
-	var txt;
-	$.post("/shortdesc/"+id,
-    function(data){
-	    /*alert(data.text);
-	    /*console.log(data.text);*/
-	    $(tmp).html("").html(data.text).text();
-  }, "json");
-	 /* css("display", " none");*/
-	$(".close" + id).css("display", " none");
-	$(".more" + id).css("display", " block");
+function closeart(id, path){
+  var tmp = ".body" + id;
+  $(tmp).html("").css("display", " none");
+  $(".close" + id).css("display", " none");
+  $(".more" + id).css("display", " block");
+  $(".image_" + id).attr('src', path);
 }
 
 function smnrtgl1(){
-	$("#close1").toggle();
-	$(".semshow1").toggle();
-	$(".semhide1").toggle();
+  $("#close1").toggle();
+  $(".semshow1").toggle();
+$(".semhide1").toggle();
 }
 function smnrtgl2(){
-	$("#close2").toggle();
-	$(".semshow2").toggle();
-	$(".semhide2").toggle();
+  $("#close2").toggle();
+  $(".semshow2").toggle();
+  $(".semhide2").toggle();
+}
+function smnrtgl3(){
+  $("#close3").toggle();
+  $(".semshow3").toggle();
+  $(".semhide3").toggle();
+}
+
+function create_question(){
+  $("#popup").html("").removeClass().addClass("request-call").load("/questions/new", function(){});
+  $(".wrapper").addClass("disable");
+}
+
+function closepopup(){
+  $("#close").live('click' ,function() {
+    $(".wrapper").removeClass("disable");
+    $('#popup').html("").removeClass();
+  });
+}
+
+function make_answer(id){
+  $("#popup").html("").removeClass().addClass("request-call").load("/answers/new?question_id="+id, function(){
+
+  });
+  $(".wrapper").addClass("disable");
 }

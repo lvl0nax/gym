@@ -1,16 +1,17 @@
 <h1>Инструкторы</h1>
 
 <% @instructors.each do |a| %>
-  <div class="specoffer">  
-    <div class="so_img"> <%= image_tag a.photo.thumb.url unless a.photo.blank?%> </div>
+  <div class="specoffer">
+    <div class="so_img"> <%= image_tag a.photo.smallthumb.url, class: "image_#{a.id}" unless a.photo.blank?%> </div>
     <div class="so_content" >
       <h2 class="red-title"> <%=  a.name %> </h2>
       <h2 class="red1-title">Филиал: <%= link_to a.filial.title, a.filial %> </h2>
-      <div class="body<%= a.id %>"><%= raw a.description.truncate(500) %></div>
+      <div class="body"><%= raw a.try(:shortdesc) %></div>
+      <div class="body<%= a.id %>"></div>
     </div>
     <div class="for_clear"></div>
-    <div class="more<%= a.id %> mc" data-id="<%= a.id %>" onclick="showinst(<%= a.id %>);">ПОДРОБНЕЕ</div>
-    <div class="close<%= a.id %> mc" data-id="<%= a.id %>" onclick="closeinst(<%= a.id %>);" style="display: none;">СКРЫТЬ</div>
+    <div class="more<%= a.id %> mc" onclick="showinst(<%= a.id %>,'<%= a.photo.thumb.url %>');">ПОДРОБНЕЕ</div>
+    <div class="close<%= a.id %> mc" onclick="closeinst(<%= a.id %>,'<%= a.photo.smallthumb.url %>');" style="display: none;">СКРЫТЬ</div>
     <div class="nplinks">
       <% if current_user.try(:isAdmin?)   %>
         <%= link_to 'Подробнее', a %>

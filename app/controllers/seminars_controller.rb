@@ -5,8 +5,10 @@ class SeminarsController < ApplicationController
   def index
     @seminars1 = Seminar.where(semtype: 1).all
     @seminars2 = Seminar.where(semtype: 2).all
+    @seminars3 = Seminar.where(semtype: 3).all
     @txt1 = Txtinfo.where(tag: "program1").first
     @txt2 = Txtinfo.where(tag: "program2").first
+    @txt3 = Txtinfo.where(tag: "program3").first
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @seminars }
