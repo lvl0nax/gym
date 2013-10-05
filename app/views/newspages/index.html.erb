@@ -1,8 +1,8 @@
 <h1 class="newstitle">Новости</h1>
 
-<% @newspages.each do |newspage| %>
+<% @newspages.reverse.each do |newspage| %>
   <div class="newspage">
-    <div class="date"> <%= newspage.created_at.to_s(:db)%> </div>
+    <div class="date"> <%= newspage.created_at.strftime('%d.%m.%y')%> </div>
     <h2> <%= link_to newspage.title, newspage %> </h2>
     <%=raw newspage.shortc %>
     <div class="nplinks">

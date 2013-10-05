@@ -13,7 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require ckeditor/init
+//= require bootstrap
 //= require_tree .
+
 function showsem(id)
 {
   var tmp = ".body" + id;
