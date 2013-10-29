@@ -82,7 +82,7 @@ h1, h2, h3, .normal {
   color: #F15A2A;
 }
 /*all constants which we can use in sass*/
-$main-width: 950px;
+$main-width: 1200px;
 
 #container {
   min-height: 100%;
@@ -90,14 +90,34 @@ $main-width: 950px;
   max-width: 100%;
   position: relative;
   overflow: hidden;
-  background: url('/assets/gymnastic.jpg') no-repeat #f9bcf5;
-  background-position: center;
+  background: -webkit-linear-gradient(
+      left,
+      #f3bbc3,
+      #ebd7ea
+  );
+  background: -moz-linear-gradient(
+      left,
+      #f3bbc3,
+      #ebd7ea
+  );
+  background: -o-linear-gradient(
+      left,
+      #f3bbc3,
+      #ebd7ea
+  );
+  background: linear-gradient(
+      left,
+      #f3bbc3,
+      #ebd7ea
+  );
+
 }
 
 .logo{
-  text-align:center;
+  padding: 20px;
 }
 .logo img{
+  width: 260px;
   position: relative;
   /*-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;*/
   box-shadow: 3px 3px 7px #aa128F;
@@ -113,16 +133,19 @@ $main-width: 950px;
 
 .top-image{
   text-align: center;
+  margin-top: -135px;
 }
 
 .top-image img{
+  padding-left: 160px;
+  width: 700px;
   -moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
 }
 
 .content-top{
   position: relative;
   width: $main-width;
-  height: 105px;
+  height: 350px;
   margin: 0 auto;
 }
 
@@ -163,12 +186,6 @@ a:hover div.mbutton{
 
 #content-body{
   margin:0 auto 80px; width:$main-width; position: relative;z-index: 2;
-  background: #fff;
-  -moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
-  box-shadow: 3px 3px 7px #aa128F;
-  -webkit-box-shadow: 3px 3px 7px #aa128F;
-  -moz-box-shadow: 3px 3px 7px #aa128F;
-  padding: 20px;
 }
 #content-footer{
   z-index: 10; position: absolute; bottom: 0; left: 50%;
@@ -188,10 +205,47 @@ h1.newstitle{color:#da4471;}
 .nplinks a:hover{color:#466b99;}
 .newspage{padding: 10px; border-bottom: 1px grey solid;}
 
-.login-links{float:right; margin-top: 30px; font-size: 18px; position: absolute; top: 0;  }
-.login-links a{text-decoration: none; color: #688daa; float: right;}
+.login-links{margin-top: 185px; font-size: 18px; position: absolute; top: 0;  }
+.login-links a{text-decoration: none; color: #688daa; }
 .login-links a:hover{ color: #688d22; }
 .lgn-links{ margin: -2000px;}
+
+.button_class{
+  width: 125px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  -moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;
+  border: 1px solid gray;
+  background: -webkit-linear-gradient(
+      left,
+      #ebd7ea,
+      #f3bbc3
+  );
+  background: -moz-linear-gradient(
+      left,
+      #ebd7ea,
+      #f3bbc3
+  );
+  background: -o-linear-gradient(
+      left,
+      #ebd7ea,
+      #f3bbc3
+  );
+  background: linear-gradient(
+      left,
+      #ebd7ea,
+      #f3bbc3
+  );
+}
+
+.slogan{
+  padding-top: 20px;
+  font-size: 42px;
+  text-align: center;
+  font-family: serif;
+  color: #6D4C77;
+}
 
 .admin-links{
   background-color: #ccc;
@@ -280,12 +334,14 @@ h1.newstitle{color:#da4471;}
   font-family:Verdana, Geneva, sans-serif;
   font-size:14px;
   display:block;
+  width: 100%;
   /* position:absolute;
   // top:100px;
   // left:50px;*/
 
 }
 #menu > li {
+  width: 19%;
   display:inline-block;
   position:relative;
 
@@ -297,10 +353,11 @@ h1.newstitle{color:#da4471;}
 }
 
 #menu a {
+  width: 92%;
   background-color:#ffabeb;
   color:#DA4471;
   text-decoration: none;
-  box-shadow:1px 1px 5px #AA128F;
+  /*box-shadow:1px 1px 5px #AA128F;*/
 }
 
 #menu > li > a {

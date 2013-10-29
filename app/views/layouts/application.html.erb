@@ -25,25 +25,35 @@
   <div id="container">
     <div class="content-top">
       <div class="logo">
-        <%= image_tag "/assets/logo_text.jpg" %>
-        <%= image_tag "/assets/logo2.jpg" %>
+        <%= image_tag '/assets/logo2.png' %>
+      </div>
+
+      <div class="top-image">
+        <%= image_tag 'faces.png' %>
       </div>
 
       <div class="login-links">
         <% if current_user %>
           <span><%= link_to current_user.email, edit_user_registration_path %></span> </br>
-          <%= link_to "Выйти", destroy_user_session_path, :method => :delete %>
+          <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
         <%else %>
-          <%= link_to "Войти", new_user_session_path %> </br>
-          <%= link_to "Регистрация", new_user_registration_path %>
+          <a href=<%= new_user_session_path %> >
+            <div class='button_class'>
+              Войти
+            </div>
+          </a>
+          <a href=<%= new_user_registration_path %> >
+            <div class='button_class'>
+              Регистрация
+            </div>
+          </a>
         <% end %>
       </div>
-
+      <div class='slogan'>
+         Смоделируйте лицо! Подарите здоровье!
+      </div>
     </div>
 
-    <div class="top-image">
-      <%= image_tag "faceline.jpg" %>
-    </div>
     <div id="content-body">
       <% if current_user.try(:isAdmin?)   %>
         <div class="admin-links">
@@ -85,8 +95,9 @@
           <li> <%= link_to "Контакты", @contacts %></li>
         </ul>
       </div>
-
-      <%= yield %>
+      <div class='main-content'>
+        <%= yield %>
+      </div>
     </div>
 
     <div id="content-footer">
