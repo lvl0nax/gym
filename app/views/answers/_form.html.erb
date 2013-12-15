@@ -3,13 +3,13 @@
   <div id="close" onclick="closepopup();">X</div>
   <div class="form-inputs">
     <b><%= "Вопрос №: #{@question.id}" %></b><br/>
-    <b><%= " #{@question.try(:title)}" %></b>
+    <b><%= "\"#{@question.try(:title)}\"" %></b>
 
-    <%= f.hidden_field :question_id, label: "Номер вопроса", input_html: {value: @question.id}, as: :string %>
-    <%= f.input :content, label: "Ответ", :input_html => { :cols => 69, :rows => 20 } %>
+    <%= f.hidden_field :question_id, label: 'Номер вопроса', value: @question.id, as: :string %>
+    <%= f.input :content, label: 'Ответ', :input_html => { :cols => 99, :rows => 10 } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Ответить" %>
+    <%= f.button :submit, 'Ответить' %>
   </div>
 <% end %>

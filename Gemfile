@@ -11,16 +11,18 @@ gem 'therubyracer'
 gem 'json'
 gem 'rmagick'
 
-gem "ckeditor", "3.7.3"
-gem "mini_magick"
+gem 'ckeditor', '3.7.3'
+gem 'mini_magick'
+
+gem 'friendly_id'
 
 gem 'devise' #install devise for users
 	#rails generate devise:install
 	#rails generate devise user
-gem "simple_form" #install simple form
+gem 'simple_form' #install simple form
 	#rails generate simple_form:install
 
-gem "carrierwave"
+gem 'carrierwave'
 	#rails generate uploader Photo
 gem 'mime-types', :require => 'mime/types'
 gem 'rmagick'

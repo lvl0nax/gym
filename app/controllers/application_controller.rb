@@ -5,9 +5,10 @@ class ApplicationController < ActionController::Base
 
   def init_menu
     #@about = Infopage.where(:tag => "about").first
-    @contacts = Page.where((:title).downcase => "контакты").first
-    @pages = Page.all.to_a
-    @pages.delete(@contacts)
+    #@contacts = Page.where((:title).downcase => "контакты").first
+    @pages = Page.where(top_page: true)
+    @other_pages = Page.where(top_page: false)
+    #@pages.delete(@contacts)
     @count = Question.where("id not in (select question_id from answers)").count
   end
 

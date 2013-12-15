@@ -7,8 +7,8 @@
   <meta name="description" content="<%= seodescription %>" />
   <meta name="keywords" content="<%= seokeywords%>" />
 
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    'application', :media => 'all' %>
+  <%= javascript_include_tag 'application' %>
 
   <script type='text/javascript' charset='UTF-8'>
     $(document).ready(function(){
@@ -58,45 +58,80 @@
       <% if current_user.try(:isAdmin?)   %>
         <div class="admin-links">
           Создать:
-          <%= link_to "Страницу", new_page_path %>|
-          <%= link_to "Новость", new_newspage_path %>|
-          <%= link_to "Филиал", new_filial_path %> |
-          <%= link_to "Программу", new_seminar_path %> |
-          <%= link_to "Текст", txtinfos_path %> |
-          <%= link_to "Статью", new_article_path %> |
-          <%= link_to "Инструктора", new_instructor_path %> |
-          <%= link_to "альбом", new_album_path %> |
+          <%= link_to 'Страницу', new_page_path %>|
+          <%= link_to 'Новость', new_newspage_path %>|
+          <%= link_to 'Филиал', new_filial_path %> |
+          <%= link_to 'Программу', new_seminar_path %> |
+          <%= link_to 'Текст', txtinfos_path %> |
+          <%= link_to 'Статью', new_article_path %> |
+          <%= link_to 'Инструктора', new_instructor_path %> |
+          <%= link_to 'альбом', new_album_path %> |
           <%= link_to "Ответить на вопросы(#{@count})", list_no_answered_questions_path %>
         </div>
       <% end %>
 
       <div id="new-menu">
         <ul id="menu">
-          <li> <%= link_to "Информация", "#" %>
-            <ul>
-              <% @pages.each do |p|%>
-                <li>
-                  <%= link_to p do %>
-                    <%= p.title %>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </li>
 
-          <li> <%= link_to "Новости", newspages_path %></li>
-          <li> <%= link_to "Программы", seminars_path %></li>
-          <li> <%= link_to "Филиалы", filials_path %></li>
-          <li> <%= link_to "Инструкторы", instructors_path %></li>
-          <% if current_user.try(:isAdmin?)   %>
-            <li> <%= link_to "Галерея", albums_path %></li>
-            <li> <%= link_to "Вопросы", questions_path %></li>
+
+          <% @pages.each do |p|%>
+            <li>
+              <%= link_to p do %>
+                <%= p.title %>
+              <% end %>
+            </li>
           <% end %>
-          <li> <%= link_to "Контакты", @contacts %></li>
+
+          <li> <%= link_to 'Программы', seminars_path %></li>
         </ul>
       </div>
-      <div class='main-content'>
-        <%= yield %>
+      <div class='main-content row-fluid'>
+        <div class='span2'>
+          <ul class='nav nav-pills left-menu' role='menu' aria-labelledby='dLabel'>
+            <li class="dropdown-submenu">
+              <%= link_to 'Информация', '#', tabindex: '-1' %>
+              <ul class='dropdown-menu'>
+                <% @other_pages.each do |p|%>
+                    <li>
+                      <%= link_to p do %>
+                          <%= p.title %>
+                      <% end %>
+                    </li>
+                <% end %>
+              </ul>
+            </li>
+            <li> <%= link_to 'Новости', newspages_path %></li>
+            <li> <%= link_to 'Филиалы', filials_path %></li>
+            <% if current_user.try(:isAdmin?)   %>
+                <li> <%= link_to 'Инструкторы', instructors_path %></li>
+                <li> <%= link_to 'Галерея', albums_path %></li>
+                <li> <%= link_to 'Вопросы', questions_path %></li>
+                <li> <%= link_to 'Контакты', @contacts %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class='white-area span8'>
+          <%= yield %>
+        </div>
+        <div class='span2'>
+          <h2 class="newstitle">Новости</h2>
+
+          <%- Newspage.last(3).reverse.each do |newspage| %>
+              <div class="newspage">
+                <div class="date"> <%= newspage.created_at.strftime('%d.%m.%Y')%> </div>
+                <h3> <%= link_to newspage.title, newspage %> </h3>
+                <%=raw newspage.shortc.html_safe %>
+                <div class="nplinks">
+                  <%= link_to 'Подробнее', newspage %>
+                  <% if current_user.try(:isAdmin?)   %>
+                      <%= link_to 'Редактировать', edit_newspage_path(newspage) %>
+                      <%= link_to 'Удалить', newspage, confirm: 'Вы уверены?', method: :delete %>
+                  <% end %>
+
+                </div>
+              </div>
+          <% end %>
+        </div>
       </div>
     </div>
 

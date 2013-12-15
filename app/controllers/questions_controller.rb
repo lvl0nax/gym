@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
   def index
     #@questions = Question.all
     # ищем ответы чтоб выводить только отвеченные вопросы
-    @answers = Answer.last(20).reverse
+    @answers = Answer.includes(:question).last(20).reverse
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @questions }
