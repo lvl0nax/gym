@@ -3,55 +3,54 @@
 <head>
   <meta charset='utf-8'>
 
-  <title><%= seotitle%></title>
+  <title><%= seotitle %></title>
   <meta name="description" content="<%= seodescription %>" />
   <meta name="keywords" content="<%= seokeywords%>" />
 
-  <%= stylesheet_link_tag    'application', :media => 'all' %>
+  <%= stylesheet_link_tag    'application' %>
   <%= javascript_include_tag 'application' %>
-
-  <script type='text/javascript' charset='UTF-8'>
-    $(document).ready(function(){
-      $('form[data-remote]').bind("ajax:before", function(){
-        for (instance in CKEDITOR.instances){
-          CKEDITOR.instances[instance].updateElement();
-        }
-      });
-    });
-  </script>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div id="container">
-    <div class="content-top">
-      <div class="logo">
-        <%= image_tag '/assets/logo2.png' %>
+    <div class="content-top row ">
+      <div class="span3  with_custom">
+        <div>
+          <%= image_tag '/assets/logo2.png' %>
+        </div>
+        <div class="login-links">
+          <% if current_user %>
+            <span><%= link_to current_user.email, edit_user_registration_path %></span> </br>
+            <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
+          <%else %>
+            <a href=<%= new_user_session_path %> >
+              <div class='button_class'>
+                Войти
+              </div>
+            </a>
+            <a href=<%= new_user_registration_path %> >
+              <div class='button_class'>
+                Регистрация
+              </div>
+            </a>
+          <% end %>
+        </div>
       </div>
 
-      <div class="top-image">
-        <%= image_tag 'faces.png' %>
+      <div class="span9 with_custom">
+        <div class="top-image">
+          <%= image_tag @topimage.header_url(:thumb), alt: @topimage.alt %>
+        </div>
+
+        <div class='slogan'>
+           <%= @topimage.slogan %>
+        </div>
       </div>
 
-      <div class="login-links">
-        <% if current_user %>
-          <span><%= link_to current_user.email, edit_user_registration_path %></span> </br>
-          <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
-        <%else %>
-          <a href=<%= new_user_session_path %> >
-            <div class='button_class'>
-              Войти
-            </div>
-          </a>
-          <a href=<%= new_user_registration_path %> >
-            <div class='button_class'>
-              Регистрация
-            </div>
-          </a>
-        <% end %>
+      <div class="span3 patent with_custom">
+
       </div>
-      <div class='slogan'>
-         Смоделируйте лицо! Подарите здоровье!
-      </div>
+
     </div>
 
     <div id="content-body">
@@ -66,7 +65,9 @@
           <%= link_to 'Статью', new_article_path %> |
           <%= link_to 'Инструктора', new_instructor_path %> |
           <%= link_to 'альбом', new_album_path %> |
-          <%= link_to "Ответить на вопросы(#{@count})", list_no_answered_questions_path %>
+          <%= link_to 'Гл. баннер', (Topimage.any? ? edit_topimage_path(1) : new_topimage_path) %> |
+          <%= link_to "Ответить на вопросы(#{@count})", list_no_answered_questions_path %> |
+          <%= link_to 'левый баннер', new_banner_path %>
         </div>
       <% end %>
 
@@ -83,6 +84,7 @@
           <% end %>
 
           <li> <%= link_to 'Программы', seminars_path %></li>
+          <li> <%= link_to 'Записаться', '#', onclick: 'go_to_program();' %></li>
         </ul>
       </div>
       <div class='main-content row-fluid'>
@@ -109,6 +111,13 @@
                 <li> <%= link_to 'Контакты', @contacts %></li>
             <% end %>
           </ul>
+          <div class='left-banner'>
+            <%- if Banner.any? %>
+              <a href=<%= Banner.first.link_url %> target='blank'>
+                <%= image_tag Banner.first.pic_url(:thumb) %>
+              </a>
+            <% end %>
+          </div>
         </div>
         <div class='white-area span8'>
           <%= yield %>

@@ -1,0 +1,14 @@
+<%= simple_form_for(@appointment) do |f| %>
+  <%= f.error_notification %>
+  <div id="close" onclick="closepopup();">X</div>
+  <div class="form-inputs">
+    <%= f.input :seminar, label: false, collection: Seminar.all, prompt: 'Выберите семинар' %>
+    <%= f.input :name, label: false, placeholder: 'Ваше имя' %>
+    <%= f.input :surname, label: false, placeholder: 'Ваша фамилия' %>
+    <%= f.input :email, label: false, placeholder: 'Ваш email ' %>
+    <%= f.input :phone, label: false, placeholder: 'Телефон' %>
+    <%= f.input :comment, label: false, placeholder: 'Коммент', :input_html => { :cols => 69, :rows => 10 } %>
+  </div>
+
+  <%= f.button :submit, 'Отправить запрос' %>
+<% end %>

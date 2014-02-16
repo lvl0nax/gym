@@ -1,16 +1,17 @@
 Gymnastics::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
+
   resources :albums do
     resources :pics
   end
 
   resources :reviews
-
   resources :txtinfos
-
-  mount Ckeditor::Engine => '/ckeditor'
-
+  resources :topimages, except: [:show, :index]
+  resources :banners, except: [:show]
   resources :articles
+  resources :appointments
 
   match 'shortdesc/:id' => 'pages#short_desc'
   match 'shortdesci/:id' => 'instructors#short_desc'

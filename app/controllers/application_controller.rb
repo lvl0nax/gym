@@ -4,12 +4,13 @@ class ApplicationController < ActionController::Base
   before_filter :init_menu
 
   def init_menu
+    @topimage = Topimage.first
     #@about = Infopage.where(:tag => "about").first
     #@contacts = Page.where((:title).downcase => "контакты").first
     @pages = Page.where(top_page: true)
     @other_pages = Page.where(top_page: false)
     #@pages.delete(@contacts)
-    @count = Question.where("id not in (select question_id from answers)").count
+    @count = Question.where('id not in (select question_id from answers)').count
   end
 
   def admin_require
@@ -19,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def deny_access
-    flash[:error] = "you have no accessible rights access denied."
+    flash[:error] = 'you have no accessible rights access denied.'
     redirect_to root_path #root_url
   end
 

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.16'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -11,7 +11,7 @@ gem 'therubyracer'
 gem 'json'
 gem 'rmagick'
 
-gem 'ckeditor', '3.7.3'
+gem 'ckeditor', '4.0.8'
 gem 'mini_magick'
 
 gem 'friendly_id'
@@ -25,7 +25,6 @@ gem 'simple_form' #install simple form
 gem 'carrierwave'
 	#rails generate uploader Photo
 gem 'mime-types', :require => 'mime/types'
-gem 'rmagick'
 
 
 # Gems used only for assets and not required
@@ -58,7 +57,7 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'meta_request'
+  #gem 'better_errors'
+  #gem 'binding_of_caller'
+  #gem 'meta_request'
 end

@@ -3,8 +3,8 @@
 
   <div class="form-inputs">
     <%= f.input :title, label: 'Заголовок' %>
-    <%= f.input :shortc, as: :ckeditor, label: 'Краткое описание', input_html: { toolbar: 'Full' } %>
-    <%= f.input :content, as: :ckeditor, label: 'Содержание', input_html: { toolbar: 'Full' }  %>
+    <%= f.input :shortc, as: :ckeditor, label: 'Краткое описание', input_html: { ckeditor: {toolbar: 'Full'} } %>
+    <%= f.input :content, as: :ckeditor, label: 'Содержание', input_html: { ckeditor: {toolbar: 'Full'} }  %>
     <%= f.input :semtype, label: 'Тип', hint: '1 - для начинающих / 2 - для продвинутых / 3 - для остальных' %>
     <%= f.input :meta_title %>
     <%= f.input :meta_desc %>

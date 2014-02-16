@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require ckeditor/init
 //= require bootstrap
+//= require ckeditor/init
 //= require_tree .
 
 function showsem(id)
@@ -86,7 +86,7 @@ function closeart(id, path){
 function smnrtgl1(){
   $("#close1").toggle();
   $(".semshow1").toggle();
-$(".semhide1").toggle();
+  $(".semhide1").toggle();
 }
 function smnrtgl2(){
   $("#close2").toggle();
@@ -104,11 +104,14 @@ function create_question(){
   $(".wrapper").addClass("disable");
 }
 
+function go_to_program(){
+  $("#popup").html("").removeClass().addClass("request-call").load("/appointments/new", function(){});
+  $(".wrapper").addClass("disable");
+}
+
 function closepopup(){
-  $("#close").live('click' ,function() {
-    $(".wrapper").removeClass("disable");
-    $('#popup').html("").removeClass();
-  });
+  $(".wrapper").removeClass("disable");
+  $('#popup').html("").removeClass();
 }
 
 function make_answer(id){

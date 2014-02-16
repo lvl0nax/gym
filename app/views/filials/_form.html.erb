@@ -5,7 +5,7 @@
     <%= f.input :title, label: 'Название' %>
     <%= f.input :photo, label: 'Изображение' %>
     <%= f.input :shortc, label: "Краткое описание" %>
-    <%= f.input :content, as: :ckeditor, label: 'Описание', input_html: { toolbar: 'Full' } %>
+    <%= f.input :content, as: :ckeditor, label: 'Описание', input_html: { ckeditor: {toolbar: 'Full'} } %>
     <%= f.input :meta_title %>
     <%= f.input :meta_desc %>
     <%= f.input :meta_key %>

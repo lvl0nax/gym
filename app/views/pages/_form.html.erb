@@ -6,7 +6,7 @@
     <%= f.input :title, label: 'Название' %>
     <%= f.input :top_page, label: 'Верхнее меню?' %>
     <%= f.input :image, label: 'Изображение' %>
-    <%= f.input :content, as: :ckeditor, label: 'Содержание', input_html: { toolbar: 'Full' } %>
+    <%= f.input :content, as: :ckeditor, label: 'Содержание', input_html: { ckeditor: {toolbar: 'Full'} } %>
     <%= f.input :meta_title %>
     <%= f.input :meta_desc %>
     <%= f.input :meta_key %>

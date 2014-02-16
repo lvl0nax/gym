@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :tag, label: 'Атрибут-привязка', collection: ["program1", "program2", "program3", "text3"] %>
-    <%= f.input :content, as: :ckeditor, label: 'Содержание', input_html: { toolbar: 'Full' } %>
+    <%= f.input :content, as: :ckeditor, label: 'Содержание', input_html: { ckeditor: {toolbar: 'Full'} } %>
   </div>
 
   <div class="form-actions">

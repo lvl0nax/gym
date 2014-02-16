@@ -4,8 +4,8 @@
   <div class="form-inputs">
     <%= f.input :name, label: 'Имя' %>
     <%= f.input :photo, label: 'Фото' %>
-    <%= f.input :shortdesc, as: :ckeditor, label: 'Краткое описание', input_html: { toolbar: 'Full' } %>
-    <%= f.input :description, as: :ckeditor, label: 'Содержание', input_html: { toolbar: 'Full' } %>
+    <%= f.input :shortdesc, as: :ckeditor, label: 'Краткое описание', input_html: { ckeditor: {toolbar: 'Full'} } %>
+    <%= f.input :description, as: :ckeditor, label: 'Содержание', input_html: { ckeditor: {toolbar: 'Full'} } %>
     <%= f.association :filial, label: 'Филиал' %>
     <%= f.input :meta_title %>
     <%= f.input :meta_desc %>

@@ -5,11 +5,11 @@
   <%- @answers.each do |answer| %>
     <div class="panel panel-default with_border">
       <div class="panel-heading with_style">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#<%=answer.question.id%>">
+        <a data-toggle="collapse" data-parent="#accordion" href="#<%=answer.question.id%>">
+          <h4 class="panel-title">
             <b><%="№#{answer.question.id}: \"#{answer.question.title}\"" %></b>
-          </a>
-        </h4>
+          </h4>
+        </a>
       </div>
       <div id="<%=answer.question.id%>" class="panel-collapse collapse top-bordered">
         <div class="panel-body">

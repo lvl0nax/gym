@@ -1,3 +1,4 @@
+@import 'bootstrap';
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -9,7 +10,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require bootstrap/bootstrap
  *= require_tree .
  */
 /* reset */
@@ -113,25 +113,25 @@ $main-width: 1200px;
 
 }
 
-.logo{
+/*.logo{
   padding: 20px;
 }
 .logo img{
   width: 260px;
   position: relative;
   /*-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;*/
-  box-shadow: 3px 3px 7px #aa128F;
+  /*box-shadow: 3px 3px 7px #aa128F;
   -webkit-box-shadow: 3px 3px 7px #aa128F;
   -moz-box-shadow: 3px 3px 7px #aa128F;
 }
-
+*/
 .descr img{
   float: left;
 }
 
 .for_clear{clear:left;}
 
-.top-image{
+/*.top-image{
   text-align: center;
   margin-top: -135px;
 }
@@ -141,12 +141,23 @@ $main-width: 1200px;
   width: 700px;
   -moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
 }
+*/
+
+.patent{
+  height: 200px;
+}
+
+.with_custom{
+  margin: 0 10px;
+  text-align: center;
+}
 
 .content-top{
   position: relative;
   width: $main-width;
-  height: 350px;
+  height: 245px;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
 .top-menu{
@@ -198,7 +209,7 @@ a:hover div.mbutton{
   font-family: 'Times New Roman';
   font-style: italic;
 }
-h2.newstitle{margin: 0;}
+h2.newstitle{margin: 0; color: indigo;}
 .newspage h3{margin: 0;
   line-height: 25px;}
 .newspage h3 a{color:#688daa; text-decoration: none;}
@@ -206,13 +217,14 @@ h2.newstitle{margin: 0;}
 .nplinks a{color:#688daa;}
 .nplinks a:hover{color:#466b99;}
 .newspage{
+  background-color: lightgoldenrodyellow;
   border: 1px #DA4471 solid;
   -moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
   padding: 10px;
 }
 
-.login-links{margin-top: 185px; font-size: 18px; position: absolute; top: 0;  }
-.login-links a{text-decoration: none; color: #688daa; }
+.login-links{margin-top: 150px; font-size: 18px; position: absolute; top: 0;  }
+.login-links a{text-decoration: none; color: indigo; }
 .login-links a:hover{ color: #688d22; }
 .lgn-links{ margin: -2000px;}
 
@@ -247,10 +259,10 @@ h2.newstitle{margin: 0;}
 
 .slogan{
   padding-top: 20px;
-  font-size: 42px;
+  font-size: 40px;
   text-align: center;
   font-family: serif;
-  color: #6D4C77;
+  color: indigo;
 }
 
 .admin-links{
@@ -337,8 +349,8 @@ h2.newstitle{margin: 0;}
 
 #new-menu {text-align: center; height: 50px;}
 #menu {
-  font-family:Verdana, Geneva, sans-serif;
-  font-size:14px;
+  font-family: Arail, Verdana, Geneva, sans-serif;
+  font-size:14pt;
   display:block;
   width: 100%;
   margin: 0;
@@ -348,7 +360,7 @@ h2.newstitle{margin: 0;}
 
 }
 #menu > li {
-  width: 19%;
+  width: 17%;
   display:inline-block;
   position:relative;
 }
@@ -361,7 +373,7 @@ h2.newstitle{margin: 0;}
 #menu a {
   width: 91%;
   background-color:#ffabeb;
-  color:#DA4471;
+  color: indigo;
   text-decoration: none;
   /*box-shadow:1px 1px 5px #AA128F;*/
 }
@@ -369,7 +381,7 @@ h2.newstitle{margin: 0;}
 #menu > li > a {
   display:inline-block;
   height:20px;
-  padding:10px;
+  padding: 5px;
   border:1px solid #DA4471;
   border-radius:5px;
 }
@@ -423,7 +435,7 @@ h2.newstitle{margin: 0;}
 
 .request-call{
   position: fixed;
-  background-color: #f2fdfc;
+  background-color: #ebd6e9;
   top:50px;
   /*left:385px;*/
   left: 50%;
@@ -486,14 +498,16 @@ h2.newstitle{margin: 0;}
 .white-area{
   background-color: white;
   padding: 10px;
+  -moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
 }
 
 .nav-pills li{
+  font: 14pt Arial, Verdana, Helvetica, sans-serif;
   width: 170px;
   a{
     border: 1px solid #DA4471;
     border-radius: 5px;
-    color: deeppink;
+    color: indigo;
     background-color: #ffabeb;
     &:hover{
       background-color: #FCF;
@@ -558,10 +572,18 @@ h2.newstitle{margin: 0;}
 }
 .with_style{
   padding: 0 10px;
-  h4 > a{
+  height: 30px;
+  a > h4{
     color: #6D4C77;
+  }
+  h4{
+    line-height: 30px;
   }
 }
 .colored_grey{
   color: #688daa;
+}
+
+.with_outline{
+  outline: 2px solid black;
 }

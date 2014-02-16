@@ -1,0 +1,14 @@
+
+<h1 class="colored_grey">Заявки на семинары</h1>
+
+<div class="panel-group" id="accordion">
+  <%- @appointments.each do |appointment| %>
+    <%= appointment.name %>
+    <%= appointment.surname %>
+    <%= appointment.email %>
+    <%= appointment.phone %>
+    <%= appointment.comment %>
+    <%= appointment.seminar.title %>
+  <%- end %>
+</div>
+
