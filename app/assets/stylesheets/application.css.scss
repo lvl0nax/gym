@@ -209,7 +209,7 @@ a:hover div.mbutton{
   font-family: 'Times New Roman';
   font-style: italic;
 }
-h2.newstitle{margin: 0; color: indigo;}
+h2.newstitle{margin: 0; color: #000080;}
 .newspage h3{margin: 0;
   line-height: 25px;}
 .newspage h3 a{color:#688daa; text-decoration: none;}
@@ -224,7 +224,7 @@ h2.newstitle{margin: 0; color: indigo;}
 }
 
 .login-links{margin-top: 150px; font-size: 18px; position: absolute; top: 0;  }
-.login-links a{text-decoration: none; color: indigo; }
+.login-links a{text-decoration: none; color: #000080; }
 .login-links a:hover{ color: #688d22; }
 .lgn-links{ margin: -2000px;}
 
@@ -262,7 +262,7 @@ h2.newstitle{margin: 0; color: indigo;}
   font-size: 40px;
   text-align: center;
   font-family: serif;
-  color: indigo;
+  color: #000080;
 }
 
 .admin-links{
@@ -373,7 +373,7 @@ h2.newstitle{margin: 0; color: indigo;}
 #menu a {
   width: 91%;
   background-color:#ffabeb;
-  color: indigo;
+  color: #000080;
   text-decoration: none;
   /*box-shadow:1px 1px 5px #AA128F;*/
 }
@@ -499,6 +499,9 @@ h2.newstitle{margin: 0; color: indigo;}
   background-color: white;
   padding: 10px;
   -moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;
+  box-shadow: 3px 3px 7px #aa128F;
+  -webkit-box-shadow: 3px 3px 7px #aa128F;
+  -moz-box-shadow: 3px 3px 7px #aa128F;
 }
 
 .nav-pills li{
@@ -507,7 +510,7 @@ h2.newstitle{margin: 0; color: indigo;}
   a{
     border: 1px solid #DA4471;
     border-radius: 5px;
-    color: indigo;
+    color: #000080;
     background-color: #ffabeb;
     &:hover{
       background-color: #FCF;
