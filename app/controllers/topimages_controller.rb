@@ -5,7 +5,7 @@ class TopimagesController < ApplicationController
   def new
     @topimage = Topimage.new
     respond_to do |format|
-      format.html # new.html.erb
+      format.html {render layout: false}# new.html.erb
       format.json { render json: @topimage }
     end
   end
