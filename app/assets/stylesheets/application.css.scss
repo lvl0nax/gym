@@ -506,7 +506,7 @@ h2.newstitle{margin: 0; color: #000080;}
 
 .nav-pills li{
   font: 14pt Arial, Verdana, Helvetica, sans-serif;
-  width: 170px;
+  min-width: 170px;
   a{
     border: 1px solid #DA4471;
     border-radius: 5px;
