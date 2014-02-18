@@ -38,13 +38,15 @@
       </div>
 
       <div class="span9 with_custom">
-        <div class="top-image">
-          <%= image_tag @topimage.header_url(:thumb), alt: @topimage.alt %>
-        </div>
+        <%- if @topimage %>
+          <div class="top-image">
+            <%= image_tag @topimage.header_url(:thumb), alt: @topimage.alt %>
+          </div>
 
-        <div class='slogan'>
-           <%= @topimage.slogan %>
-        </div>
+          <div class='slogan'>
+             <%= @topimage.slogan %>
+          </div>
+        <%- end %>
       </div>
 
       <div class="span3 patent with_custom">
