@@ -90,7 +90,8 @@ $main-width: 1200px;
   max-width: 100%;
   position: relative;
   overflow: hidden;
-  background: -webkit-linear-gradient(
+  @include gradient-horizontal(#f3bbc3, #ebd7ea)
+  /*background: -webkit-linear-gradient(
       left,
       #f3bbc3,
       #ebd7ea
@@ -109,7 +110,7 @@ $main-width: 1200px;
       left,
       #f3bbc3,
       #ebd7ea
-  );
+  );*/
 
 }
 
@@ -210,8 +211,11 @@ a:hover div.mbutton{
   font-style: italic;
 }
 h2.newstitle{margin: 0; color: #000080;}
-.newspage h3{margin: 0;
-  line-height: 25px;}
+.newspage h3{
+  margin: 0;
+  line-height: 25px;
+  word-wrap: break-word;
+}
 .newspage h3 a{color:#688daa; text-decoration: none;}
 .newspage h3 a:hover{color:#466b99;}
 .nplinks a{color:#688daa;}

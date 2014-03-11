@@ -104,13 +104,25 @@
                 <% end %>
               </ul>
             </li>
+            <li class="dropdown-submenu">
+              <%= link_to 'Статьи', '#', tabindex: '-1' %>
+              <ul class='dropdown-menu'>
+                <%- @articles.each do |p|%>
+                    <li>
+                      <%= link_to p do %>
+                          <%= p.name %>
+                      <% end %>
+                    </li>
+                <% end %>
+              </ul>
+            </li>
             <li> <%= link_to 'Новости', newspages_path %></li>
             <li> <%= link_to 'Филиалы', filials_path %></li>
+            <li> <%= link_to 'Вопросы', questions_path %></li>
             <% if current_user.try(:isAdmin?)   %>
-                <li> <%= link_to 'Инструкторы', instructors_path %></li>
-                <li> <%= link_to 'Галерея', albums_path %></li>
-                <li> <%= link_to 'Вопросы', questions_path %></li>
-                <li> <%= link_to 'Контакты', @contacts %></li>
+              <li> <%= link_to 'Инструкторы', instructors_path %></li>
+              <li> <%= link_to 'Галерея', albums_path %></li>
+              <li> <%= link_to 'Контакты', @contacts %></li>
             <% end %>
           </ul>
           <div class='left-banner'>

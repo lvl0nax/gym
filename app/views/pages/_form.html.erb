@@ -4,6 +4,7 @@
 
   <div class="form-inputs">
     <%= f.input :title, label: 'Название' %>
+    <%= f.input :position, label: 'Позиция в списке?' %>
     <%= f.input :top_page, label: 'Верхнее меню?' %>
     <%= f.input :image, label: 'Изображение' %>
     <%= f.input :content, as: :ckeditor, label: 'Содержание', input_html: { ckeditor: {toolbar: 'Full'} } %>
