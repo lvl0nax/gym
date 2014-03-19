@@ -29,28 +29,3 @@
   <%= link_to 'Back', pages_path %>
 
 <% end %>
-
-<% if @articles %>
-  <% @articles.each do |a| %>
-    <div class="specoffer">
-      <% unless (a.photo.blank? && a.photo.smallthumb.url.blank?) %>
-        <div class="so_img" id="img_<%= a.id %>"> <%= image_tag a.photo.smallthumb.url, class: "image_#{a.id}" %> </div>
-      <% end %>
-      <div class="so_content" >
-        <h2 class="red-title"> <%=  a.name %> </h2>
-        <div class="body"><%= raw a.try(:shortdesc) %></div>
-        <div class="body<%= a.id %>" ></div>
-      </div>
-      <div class="for_clear"></div>
-      <div class="more<%= a.id %> mc" onclick="showart(<%= a.id %>,'<%= a.photo.thumb.url %>');">ПОДРОБНЕЕ</div>
-      <div class="close<%= a.id %> mc" onclick="closeart(<%= a.id %>,'<%= a.photo.smallthumb.url %>');" style="display: none;">СКРЫТЬ</div>
-      <div class="nplinks">
-        <% if current_user.try(:isAdmin?)   %>
-          <%= link_to 'Подробнее', a %>
-          <%= link_to 'Редактировать', edit_article_path(a) %>
-          <%= link_to 'Удалить', a, confirm: 'Вы уверены?', method: :delete %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-<% end %>
