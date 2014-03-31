@@ -57,7 +57,6 @@ a:hover, .jslink:hover{
     text-decoration: none;}
 }
 body{
-  font: 13px Helvetica,sans-serif;
   background: #fff;
 }
 h1 {
@@ -267,6 +266,7 @@ h2.newstitle{margin: 0; color: #000080;}
   text-align: center;
   font-family: serif;
   color: #000080;
+  line-height: 35px;
 }
 
 .admin-links{
@@ -351,7 +351,7 @@ h2.newstitle{margin: 0; color: #000080;}
   display: none;
 }
 
-#new-menu {text-align: center; height: 50px;}
+#new-menu {text-align: center; line-height: 60px;}
 #menu {
   font-family: Arail, Verdana, Geneva, sans-serif;
   font-size:14pt;

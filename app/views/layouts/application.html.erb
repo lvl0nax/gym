@@ -70,6 +70,7 @@
           <%= link_to 'Гл. баннер', (Topimage.any? ? edit_topimage_path(1) : new_topimage_path) %> |
           <%= link_to "Ответить на вопросы(#{@count})", list_no_answered_questions_path %> |
           <%= link_to 'левый баннер', new_banner_path %>
+          <%= link_to 'заявки', appointments_path %>
         </div>
       <% end %>
 

@@ -35,7 +35,7 @@ class AppointmentsController < ApplicationController
 
     respond_to do |format|
       if @appointment.save
-        format.html { redirect_to questions_path, notice: 'Appointment was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Appointment was successfully created.' }
         format.json { render json: @appointment, status: :created, location: @appointment }
       else
         format.html { render action: "new" }
